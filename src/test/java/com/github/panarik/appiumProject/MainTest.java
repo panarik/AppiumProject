@@ -41,6 +41,13 @@ public class MainTest {
         appiumDriver = new AppiumDriver<MobileElement>(url, cap);
         System.out.println("app started...");
 
+        //Actions on singIn screen
+        MobileElement enter = appiumDriver.findElementById("com.github.panarik.smartFeatures:id/sign_in_without_auth");
+        enter.click();
+
+        //Assert on Main screen
+        MobileElement mainMenu = appiumDriver.findElementById("com.github.panarik.smartFeatures:id/recyclerView");
+        System.out.println(mainMenu.isDisplayed());
     }
 
 }
