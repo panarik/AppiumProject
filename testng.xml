@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/AALEVIN8/Documents/GitHub/AppiumProject">
+    <test name="TestRun1">
+
+        <!-- передаем параметр в тесты -->
+        <parameter name="db" value="SQL Parameter"/>
+
+        <!-- фильтр тестов -->
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+
+        <!-- набираем из пакетов -->
+        <packages>
+            <package name="com.github.panarik.appiumProject.testNG.smoke"/>
+        </packages>
+
+        <!-- набираем из классов -->
         <classes>
-            <class name="com.github.panarik.appiumProject.testNG.Test1">
-                <methods>
-                    <include name="test1"/>
-                </methods>
-            </class>
-            <class name="com.github.panarik.appiumProject.testNG.Test2">
-                <methods>
-                    <include name="test2"/>
-                </methods>
-            </class>
+            <class name="com.github.panarik.appiumProject.testNG.Test1"/>
         </classes>
+
     </test>
 </suite>
