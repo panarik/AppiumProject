@@ -21,6 +21,9 @@ dependencies {
 
 }
 
+//task name for run tests from xml file
 test {
-    useJUnitPlatform()
+    useTestNG {
+        suites "testng.xml"
+    }
 }
