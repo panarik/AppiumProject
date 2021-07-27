@@ -29,9 +29,15 @@ public class Test1 {
         Assert.assertTrue(true);
     }
 
-    @Test
+    @Test(dependsOnMethods = {"test11"}) //тест выполняется только после выполения теста "test11"
     public void test111() {
         System.out.println("Test111");
+        Assert.assertTrue(true);
+    }
+
+    @Test(dependsOnGroups = {"regression"}) //тест выполняется только после выполения группы тестов "regression"
+    public void test1111() {
+        System.out.println("Test1111");
         Assert.assertTrue(true);
     }
 

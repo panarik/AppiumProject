@@ -11,4 +11,10 @@ public class Test2 {
         Assert.assertTrue(true);
     }
 
+    @Test (groups = {"regression"})
+    public void test22() {
+        System.out.println("Test2");
+        Assert.assertTrue(true);
+    }
+
 }
