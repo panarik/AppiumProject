@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.util;
+package com.github.panarik.appiumProject.appium.util;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

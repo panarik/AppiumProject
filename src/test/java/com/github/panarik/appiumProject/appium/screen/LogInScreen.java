@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.screen;
+package com.github.panarik.appiumProject.appium.screen;
 
-import com.github.panarik.appiumProject.util.SetupDevice;
+import com.github.panarik.appiumProject.appium.util.SetupDevice;
 import io.appium.java_client.MobileElement;
 
 public class LogInScreen extends MobileElement {

@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.util;
+package com.github.panarik.appiumProject.testNG.sample.util;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
