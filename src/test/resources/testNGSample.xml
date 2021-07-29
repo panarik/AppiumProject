@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Samples">
+    <test name="TestSuite1">
+
+        <!-- передаем параметр в тесты -->
+        <parameter name="db" value="SQL Parameter"/>
+
+        <!-- фильтр тестов -->
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+
+        <!-- набираем из пакетов -->
+        <packages>
+            <package name="com.github.panarik.appiumProject.testNG.sample.smoke"/>
+            <package name="com.github.panarik.appiumProject.testNG.sample.retry"/>
+        </packages>
+
+        <!-- набираем из классов -->
+        <classes>
+            <class name="com.github.panarik.appiumProject.testNG.sample.Test1"/>
+        </classes>
+
+    </test>
+</suite>

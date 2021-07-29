@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.testNG;
+package com.github.panarik.appiumProject.testNG.sample;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

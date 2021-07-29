@@ -22,8 +22,17 @@ dependencies {
 }
 
 //task name for run tests from xml file
-test {
-    useTestNG {
-        suites "testng.xml"
+task testSamples(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testNGSample.xml'
     }
 }
+
+task testAppium(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testNGAppium.xml'
+    }
+}
+

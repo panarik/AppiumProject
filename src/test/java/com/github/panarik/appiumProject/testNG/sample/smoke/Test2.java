@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.testNG.smoke;
+package com.github.panarik.appiumProject.testNG.sample.smoke;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

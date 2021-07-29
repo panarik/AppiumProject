@@ -1,9 +1,7 @@
-package com.github.panarik.appiumProject.testNG.retry;
+package com.github.panarik.appiumProject.testNG.sample.retry;
 
 import com.github.panarik.appiumProject.util.Retry;
 import org.testng.Assert;
-import org.testng.IRetryAnalyzer;
-import org.testng.ITestResult;
 import org.testng.annotations.Test;
 
 public class RetryTest {

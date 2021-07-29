@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test name="TestRun1">
+<suite name="TestNG Samples">
+    <test name="TestSuite1">
 
         <!-- передаем параметр в тесты -->
         <parameter name="db" value="SQL Parameter"/>
@@ -15,13 +15,13 @@
 
         <!-- набираем из пакетов -->
         <packages>
-            <package name="com.github.panarik.appiumProject.testNG.smoke"/>
-            <package name="com.github.panarik.appiumProject.testNG.retry"/>
+            <package name="com.github.panarik.appiumProject.testNG.sample.smoke"/>
+            <package name="com.github.panarik.appiumProject.testNG.sample.retry"/>
         </packages>
 
         <!-- набираем из классов -->
         <classes>
-            <class name="com.github.panarik.appiumProject.testNG.Test1"/>
+            <class name="com.github.panarik.appiumProject.testNG.sample.Test1"/>
         </classes>
 
     </test>
