@@ -7,23 +7,19 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class DeviceSettings {
+public interface DeviceSettings {
 
-    private static final String PLATFORM_NAME = "platformName";
-    private static final String VERSION = "version";
-    private static final String DEVICE_NAME = "deviceName";
-    private static final String UDID = "udid";
-    private static final String APP = "appPath";
-    private static final String UNLOCK_TYPE = "unlockType";
-    private static final String UNLOCK_KEY = "unlockKey";
+    String PLATFORM_NAME = "platformName";
+    String VERSION = "version";
+    String DEVICE_NAME = "deviceName";
+    String UDID = "udid";
+    String APP = "appPath";
+    String UNLOCK_TYPE = "unlockType";
+    String UNLOCK_KEY = "unlockKey";
 
-    public static void main(String[] args) {
 
-        System.out.println(parse().getDeviceName());
 
-    }
-
-    public static DeviceAndroid parse() {
+    static DeviceAndroid parse() {
         DeviceAndroid android = new DeviceAndroid();
         JSONParser parser = new JSONParser();
         try (FileReader reader = new FileReader("src/test/resources/device/settings.json")) {

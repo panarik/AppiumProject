@@ -1,5 +1,6 @@
 package com.github.panarik.appiumProject.testNG.appium;
 
+import com.github.panarik.appiumProject.testNG.appium.util.DeviceSettings;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -15,7 +16,7 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
 
-public class BaseClass {
+public class BaseClass implements DeviceSettings {
 
     public static AndroidDriver<MobileElement> driver;
 
@@ -24,13 +25,13 @@ public class BaseClass {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
         cap.setCapability(MobileCapabilityType.VERSION, "11");
-        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Redmi Note 9");
+        cap.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceSettings.parse().getDeviceName()); //ToDo: сделать также для всех конфигов
         cap.setCapability(MobileCapabilityType.UDID, "83209d47");
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60); //через 60 сек отключаем девайс
 //        cap.setCapability("appActivity", "com.github.panarik.smartFeatures.activity.SignInActivity"); //если установлено на девайсе
         cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\AALEVIN8\\Documents\\GitHub\\AppiumProject\\src\\test\\resources\\apps\\app-SmartFeatures-debug.apk");
         cap.setCapability("unlockType", "pattern"); //тип разблокировки девайса
-        cap.setCapability("unlockKey", "1234"); //ключ разблокировки
+        cap.setCapability("unlockKey", "3214"); //ключ разблокировки
         try {
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
             driver = new AndroidDriver<>(url, cap);
@@ -45,6 +46,9 @@ public class BaseClass {
 
         //разблокировка девайса
         driver.unlockDevice();
+
+        //ДЕБАГ
+        System.out.println();
     }
 
     @Test
