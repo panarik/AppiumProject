@@ -12,10 +12,12 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Map;
 
 public class BaseClass {
 
-    public static AppiumDriver<MobileElement> driver;
+    public static AndroidDriver<MobileElement> driver;
 
     @BeforeTest
     public void setup() {
@@ -27,12 +29,22 @@ public class BaseClass {
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60); //через 60 сек отключаем девайс
 //        cap.setCapability("appActivity", "com.github.panarik.smartFeatures.activity.SignInActivity"); //если установлено на девайсе
         cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\AALEVIN8\\Documents\\GitHub\\AppiumProject\\src\\test\\resources\\apps\\app-SmartFeatures-debug.apk");
+        cap.setCapability("unlockType", "pattern"); //тип разблокировки девайса
+        cap.setCapability("unlockKey", "1234"); //ключ разблокировки
         try {
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
             driver = new AndroidDriver<>(url, cap);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
+        //смотрим настройки сессии
+        System.out.println(driver.getSessionDetails());
+        //смотрим настройки двайвера
+        System.out.println(driver.getSettings());
+
+        //разблокировка девайса
+        driver.unlockDevice();
     }
 
     @Test
@@ -43,6 +55,7 @@ public class BaseClass {
 
     @AfterTest
     public void shutdown() {
+        driver.quit();
     }
 
 

@@ -1,8 +1,13 @@
 package com.github.panarik.appiumProject.testNG.appium.tests;
 
 import com.github.panarik.appiumProject.testNG.appium.BaseClass;
+import io.appium.java_client.MultiTouchAction;
+import io.appium.java_client.PerformsTouchActions;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.remote.Response;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class TestOne extends BaseClass {
 

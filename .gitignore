@@ -2,3 +2,4 @@
 .gradle
 /build
 *.apk
+/src/test/resources/device
