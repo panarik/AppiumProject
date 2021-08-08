@@ -2,8 +2,8 @@ package com.github.panarik.appiumProject.testNG.appium;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -15,21 +15,21 @@ import java.net.URL;
 
 public class BaseClass {
 
-    private static AppiumDriver<MobileElement> appium;
+    public static AppiumDriver<MobileElement> driver;
 
     @BeforeTest
     public void setup() {
         DesiredCapabilities cap = new DesiredCapabilities();
-//        cap.setCapability(CapabilityType.PLATFORM_NAME, "ANDROID"); //аналог
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
         cap.setCapability(MobileCapabilityType.VERSION, "11");
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Redmi Note 9");
         cap.setCapability(MobileCapabilityType.UDID, "83209d47");
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60); //через 60 сек отключаем девайс
-        cap.setCapability("appActivity", "com.github.panarik.smartFeatures.activity.SignInActivity"); //через 60 сек отключаем девайс
+//        cap.setCapability("appActivity", "com.github.panarik.smartFeatures.activity.SignInActivity"); //если установлено на девайсе
+        cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\AALEVIN8\\Documents\\GitHub\\AppiumProject\\src\\test\\resources\\apps\\app-SmartFeatures-debug.apk");
         try {
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
-            appium = new AppiumDriver<>(url, cap);
+            driver = new AndroidDriver<>(url, cap);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

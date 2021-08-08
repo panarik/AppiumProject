@@ -3,10 +3,13 @@
 <suite name="TestNG Appium">
     <test name="TestAppiumSuite1">
 
+        <packages>
+            <package name="com.github.panarik.appiumProject.testNG.appium.tests"/>
+        </packages>
         <!-- набираем из классов -->
-        <classes>
-            <class name="com.github.panarik.appiumProject.testNG.appium.BaseClass"/>
-        </classes>
+<!--        <classes>-->
+<!--            <class name="com.github.panarik.appiumProject.testNG.appium.BaseClass"/>-->
+<!--        </classes>-->
 
     </test>
 </suite>
