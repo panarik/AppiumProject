@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.appium.pageFactoryPattern;
+package com.github.panarik.appiumProject.appium.pageFactoryPattern.util;
 
 import com.github.panarik.appiumProject.testNG.appium.util.DeviceSettings;
 import io.appium.java_client.MobileElement;
@@ -13,7 +13,7 @@ public class SetupDevice {
 
     public static AndroidDriver<MobileElement> driver;
 
-    public static void redmi4X() {
+    public static void redmi9() {
 
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, DeviceSettings.setup().getPlatformName());
