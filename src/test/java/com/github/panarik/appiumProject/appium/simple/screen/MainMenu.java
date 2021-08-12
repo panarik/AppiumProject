@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.appium.screen;
+package com.github.panarik.appiumProject.appium.simple.screen;
 
-import com.github.panarik.appiumProject.appium.util.SetupDevice;
+import com.github.panarik.appiumProject.appium.simple.util.SetupDevice;
 import io.appium.java_client.MobileElement;
 
 public class MainMenu {

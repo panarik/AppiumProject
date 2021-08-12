@@ -19,7 +19,7 @@ public interface DeviceSettings {
 
 
 
-    static DeviceAndroid parse() {
+    static DeviceAndroid setup() {
         DeviceAndroid android = new DeviceAndroid();
         JSONParser parser = new JSONParser();
         try (FileReader reader = new FileReader("src/test/resources/device/settings.json")) {

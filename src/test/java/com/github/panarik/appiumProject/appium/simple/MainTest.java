@@ -1,10 +1,10 @@
-package com.github.panarik.appiumProject.appium;
+package com.github.panarik.appiumProject.appium.simple;
 
-import com.github.panarik.appiumProject.appium.util.SetupDevice;
+import com.github.panarik.appiumProject.appium.simple.util.SetupDevice;
 import org.testng.Assert;
 
-import static com.github.panarik.appiumProject.appium.screen.LogInScreen.onboardingScenario;
-import static com.github.panarik.appiumProject.appium.screen.MainMenu.mainMenu;
+import static com.github.panarik.appiumProject.appium.simple.screen.LogInScreen.onboardingScenario;
+import static com.github.panarik.appiumProject.appium.simple.screen.MainMenu.mainMenu;
 
 public class MainTest {
 
