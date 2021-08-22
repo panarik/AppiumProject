@@ -15,8 +15,7 @@
 
         <!-- набираем из пакетов -->
         <packages>
-            <package name="com.github.panarik.appiumProject.testNG.sample.smoke"/>
-            <package name="com.github.panarik.appiumProject.testNG.sample.retry"/>
+            <package name="com.github.panarik.appiumProject.testNG.sample"/>
         </packages>
 
         <!-- набираем из классов -->

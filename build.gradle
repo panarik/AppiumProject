@@ -37,10 +37,3 @@ task testSamples(type: Test) {
     }
 }
 
-task testAppium(type: Test) {
-    useTestNG() {
-        useDefaultListeners = true
-        suites 'src/test/resources/testNGAppium.xml'
-    }
-}
-
