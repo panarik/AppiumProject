@@ -1,17 +1,17 @@
-package com.github.panarik.appiumProject.appium.simple;
+package com.github.panarik.appiumProject.appium.simple.tests;
 
 import com.github.panarik.appiumProject.appium.simple.util.SetupDevice;
 import org.testng.Assert;
 
-import static com.github.panarik.appiumProject.appium.simple.screen.LogInScreen.onboardingScenario;
-import static com.github.panarik.appiumProject.appium.simple.screen.MainMenu.mainMenu;
+import static com.github.panarik.appiumProject.appium.simple.pages.LogInScreen.onboardingScenario;
+import static com.github.panarik.appiumProject.appium.simple.pages.MainMenu.mainMenu;
 
 public class MainTest {
 
 
     public static void main(String[] args) {
         //сетапим девайс
-        SetupDevice.redmi4X();
+        SetupDevice.setup();
 
         //Онбординг
         onboardingScenario();

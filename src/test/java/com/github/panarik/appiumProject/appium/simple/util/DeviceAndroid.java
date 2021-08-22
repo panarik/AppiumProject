@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.util;
+package com.github.panarik.appiumProject.appium.simple.util;
 
 public class DeviceAndroid {
 
