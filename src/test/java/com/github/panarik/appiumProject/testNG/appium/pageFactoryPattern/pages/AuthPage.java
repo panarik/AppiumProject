@@ -1,5 +1,6 @@
 package com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.pages;
 
+import com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.util.DeviceSettings;
 import com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.util.SetupDevice;
 
 import io.appium.java_client.android.AndroidElement;

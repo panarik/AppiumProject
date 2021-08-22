@@ -1,6 +1,5 @@
 package com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.util;
 
-import com.github.panarik.appiumProject.testNG.appium.simple.util.DeviceSettings;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;

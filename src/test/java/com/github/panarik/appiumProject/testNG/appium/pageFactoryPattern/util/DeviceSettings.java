@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.util;
+package com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.util;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -22,7 +22,7 @@ public interface DeviceSettings {
     static DeviceAndroid setup() {
         DeviceAndroid android = new DeviceAndroid();
         JSONParser parser = new JSONParser();
-        try (FileReader reader = new FileReader("src/main/resources/device/settings.json")) {
+        try (FileReader reader = new FileReader("src/test/resources/device/settings.json")) {
             JSONObject deviceJSON = (JSONObject) parser.parse(reader);
             android.setPlatformName((String) deviceJSON.get(PLATFORM_NAME));
             android.setVersion((String) deviceJSON.get(VERSION));
