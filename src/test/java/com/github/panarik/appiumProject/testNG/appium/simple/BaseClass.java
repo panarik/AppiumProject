@@ -1,20 +1,24 @@
-package com.github.panarik.appiumProject.appium.pageFactoryPattern.util;
+package com.github.panarik.appiumProject.testNG.appium.simple;
 
-import com.github.panarik.appiumProject.testNG.appium.util.DeviceSettings;
+import com.github.panarik.appiumProject.testNG.appium.simple.util.DeviceSettings;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class SetupDevice {
+public class BaseClass implements DeviceSettings {
 
     public static AndroidDriver<MobileElement> driver;
 
-    public static void redmi9() {
-
+    @BeforeTest
+    public void setup() {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, DeviceSettings.setup().getPlatformName());
         cap.setCapability(MobileCapabilityType.VERSION, DeviceSettings.setup().getVersion());
@@ -38,9 +42,18 @@ public class SetupDevice {
 
         //разблокировка девайса
         driver.unlockDevice();
-
-        //ДЕБАГ
-        System.out.println();
     }
+
+    @Test
+    public void simpleTest1() {
+        System.out.println("Test1");
+        Assert.assertTrue(true);
+    }
+
+    @AfterTest
+    public void shutdown() {
+        driver.quit();
+    }
+
 
 }

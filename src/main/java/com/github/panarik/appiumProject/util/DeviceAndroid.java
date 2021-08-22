@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.testNG.appium.util;
+package com.github.panarik.appiumProject.util;
 
 public class DeviceAndroid {
 

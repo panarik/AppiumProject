@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.appium.pageFactoryPattern.pages;
+package com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.pages;
 
-import com.github.panarik.appiumProject.appium.pageFactoryPattern.util.SetupDevice;
+import com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.util.SetupDevice;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;

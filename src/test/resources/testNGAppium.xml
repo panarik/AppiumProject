@@ -4,11 +4,11 @@
     <test name="TestAppiumSuite1">
 
         <packages>
-            <package name="com.github.panarik.appiumProject.testNG.appium.tests"/>
+            <package name="com.github.panarik.appiumProject.testNG.appium.simple.tests"/>
         </packages>
         <!-- набираем из классов -->
 <!--        <classes>-->
-<!--            <class name="com.github.panarik.appiumProject.testNG.appium.BaseClass"/>-->
+<!--            <class name="com.github.panarik.appiumProject.testNG.appium.simple.BaseClass"/>-->
 <!--        </classes>-->
 
     </test>

@@ -1,8 +1,8 @@
-package com.github.panarik.appiumProject.appium.pageFactoryPattern.tests;
+package com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.tests;
 
-import com.github.panarik.appiumProject.appium.pageFactoryPattern.pages.AuthPage;
-import com.github.panarik.appiumProject.appium.pageFactoryPattern.pages.MainPage;
-import com.github.panarik.appiumProject.appium.pageFactoryPattern.pages.ShopPage;
+import com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.pages.AuthPage;
+import com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.pages.MainPage;
+import com.github.panarik.appiumProject.testNG.appium.pageFactoryPattern.pages.ShopPage;
 import org.testng.annotations.Test;
 
 public class TestOne {
