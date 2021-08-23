@@ -26,4 +26,10 @@ public class AuthPage extends Pages {
         Wait.second(1);
     }
 
+    public void onboardingScenario() {
+        Action.click(sign_in_without_auth);
+        Wait.second(1);
+        Action.swipeTo("Drag and drop"); //ToDo: Перенести на отдельный Page
+    }
+
 }

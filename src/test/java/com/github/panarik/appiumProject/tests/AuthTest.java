@@ -12,20 +12,24 @@ public class AuthTest {
     public void appTest() {
         AuthPage authPage = new AuthPage();
 
+        //МАТЧЕРЫ
         //1 - Отображение на экране
-        //Проверка нативным классом
-        Assert.assertTrue(authPage.sign_in_logo.isDisplayed());
-        //Проверка кастомным методом
-        Check.isDisplayed(authPage.sign_in_logo);
-
+        Assert.assertTrue(authPage.sign_in_logo.isDisplayed()); //Проверка нативным классом
+        Check.isDisplayed(authPage.sign_in_logo); //Проверка кастомным методом
         //2 - Матчинг текста
-        //Проверка нативным классом
-        Assert.assertEquals(authPage.sign_in_without_auth.getText(), "ПРОДОЛЖИТЬ БЕЗ РЕГИСТРАЦИИ");
+        Assert.assertEquals(authPage.sign_in_without_auth.getText(), "ПРОДОЛЖИТЬ БЕЗ РЕГИСТРАЦИИ"); //Проверка нативным классом
 
-        //Клик на By локаторе
-        authPage.severalClicks();
-        //клик на AndroidElement
-        authPage.sign_in_without_auth.click();
+        //ACTIONS
+        //1 - нативные
+        authPage.chat_toggleSingUpTextView.click(); //клик на AndroidElement
+        //2 - кастомные
+        Action.click(authPage.chat_toggleSingUpTextView);
+        Action.click(500, 500); //клик по координатам
+        authPage.chat_toggleSingUpTextView.click();
+        //3 - сценарий на базовом экране
+//        authPage.severalClicks(); //Клик на By локаторах
+        authPage.onboardingScenario();
+
 
     }
 }
