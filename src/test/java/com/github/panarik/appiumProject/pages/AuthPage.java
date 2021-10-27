@@ -6,7 +6,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 
-public class AuthPage extends Pages {
+public class AuthPage extends BasePage {
 
     @AndroidFindBy(id = "sign_in_logo")
     public AndroidElement sign_in_logo;

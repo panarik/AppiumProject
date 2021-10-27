@@ -4,9 +4,9 @@ import com.github.panarik.appiumProject.driver.AppDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
-public class Pages {
+public class BasePage {
 
-    public Pages() {
+    public BasePage() {
         PageFactory.initElements(new AppiumFieldDecorator(AppDriver.getDriver()), this);
     }
 
