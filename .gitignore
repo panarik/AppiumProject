@@ -1,6 +1,3 @@
 .idea
 .gradle
 /build
-*.apk
-/src/test/resources/device
-/src/main/resources/device
