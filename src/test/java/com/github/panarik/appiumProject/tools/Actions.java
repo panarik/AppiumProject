@@ -41,18 +41,23 @@ public class Actions {
         search.pressEnter();
         search.pressTab();
         search.pressEscape();
-
+        search.scrollTo();
+        search.scrollIntoView(true); //the top of the element will be aligned to the top.
+        search.scrollIntoView(false); //the bottom of the element will be aligned to the bottom.
+//        search.selectOption(0); //Select an option from dropdown list (by index)
+//        search.uploadFile(file);
+//        search.download();
 
         //делаем скриншот
+        File file = new File("image.png");
         try {
             BufferedImage image = search.screenshotAsImage();
-            File outputfile = new File("image.png");
-            ImageIO.write(image, "png", outputfile);
-        } catch (IOException e) {
+            ImageIO.write(image, "png", file);
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
         }
 
-//        search.download();
+
 
     }
 }
