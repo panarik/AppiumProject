@@ -20,6 +20,7 @@ public class SimpleTest extends BaseTest {
                 .first().shouldHave(text("Selenide: лаконичные и стабильные UI тесты на Java"));
         //Todo: ".r>a" не работает
         result.first().find(".r>a").click();
+
         Wait().until(titleIs("Selenide"));
     }
 
