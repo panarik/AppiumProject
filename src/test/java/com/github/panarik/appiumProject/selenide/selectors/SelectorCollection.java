@@ -4,15 +4,16 @@ import com.github.panarik.appiumProject.selenide.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$$;
+import static com.github.panarik.appiumProject.locators.LocatorCSS.*;
 
 public class SelectorCollection extends BaseTest {
 
     @Test
     public void selectorCollection() {
-        $$("#search .g"); //в поле с id search вывести список всех КЛАССОВ g
-        $$("ul li:first-child"); // во всех ul вывести список всех ПЕРВЫХ child li во всех
-        $$("ul li:last-child"); //во всех ul вывести список всех ПОСЛЕДНИХ child li во всех
-        $$("ul li:nth-child(2)"); //во всех ul вывести список всех ВТОРЫХ child li во всех
+        $$(ID_CLASS);
+        $$(CHILD_LI_FIRST);
+        $$(CHILD_LI_LAST);
+        $$(CHILD_LI_SECOND);
     }
 
 }

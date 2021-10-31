@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.selenide.selectors;
+package com.github.panarik.appiumProject.selenide.matchers;
 
 import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.Test;
