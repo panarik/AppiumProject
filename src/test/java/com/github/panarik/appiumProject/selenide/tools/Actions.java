@@ -1,24 +1,17 @@
-package com.github.panarik.appiumProject.tools;
+package com.github.panarik.appiumProject.selenide.tools;
 
-import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.github.panarik.appiumProject.base.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 
 public class Actions {
 

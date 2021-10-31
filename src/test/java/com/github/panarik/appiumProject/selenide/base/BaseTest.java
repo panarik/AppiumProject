@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.base;
+package com.github.panarik.appiumProject.selenide.base;
 
 import org.junit.jupiter.api.BeforeEach;
 import static com.codeborne.selenide.Selenide.*;

@@ -1,11 +1,10 @@
-package com.github.panarik.appiumProject;
+package com.github.panarik.appiumProject.selenide;
 
 
 import com.codeborne.selenide.ElementsCollection;
-import com.github.panarik.appiumProject.base.BaseTest;
+import com.github.panarik.appiumProject.selenide.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.CollectionCondition.empty;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.CollectionCondition.*;

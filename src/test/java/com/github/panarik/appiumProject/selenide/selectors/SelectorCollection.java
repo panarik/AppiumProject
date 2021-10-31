@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.selectors;
+package com.github.panarik.appiumProject.selenide.selectors;
 
-import com.github.panarik.appiumProject.base.BaseTest;
+import com.github.panarik.appiumProject.selenide.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$$;

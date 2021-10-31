@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.tools;
+package com.github.panarik.appiumProject.selenide.tools;
 
 import static com.codeborne.selenide.Selenide.Wait;
 import static com.codeborne.selenide.Selenide.sleep;

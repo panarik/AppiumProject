@@ -1,11 +1,10 @@
-package com.github.panarik.appiumProject.selectors;
+package com.github.panarik.appiumProject.selenide.selectors;
 
-import com.github.panarik.appiumProject.base.BaseTest;
+import com.github.panarik.appiumProject.selenide.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class MatcherElement extends BaseTest {
 
