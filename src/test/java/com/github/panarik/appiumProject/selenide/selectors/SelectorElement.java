@@ -16,7 +16,7 @@ public class SelectorElement extends BaseTest {
         $(TAG_BODY).should(visible);
         $(ID).should(visible);
         $(CLASS_MANY).should(visible);
-        $(ATTRIBUTE).should(visible);
+        $(ATTRIBUTE1).should(visible);
 
         $(byId("main")).should(visible);//find by attribute id
         $(byClassName("IsZvec")).should(visible); //find by class name (only one class)
@@ -28,7 +28,7 @@ public class SelectorElement extends BaseTest {
         $(ID_CLASS_ATTRIBUTE1).should(visible);
         $(CLASS_CHILD).should(visible);
         $(CLASS_CHILD_NEAREST).should(visible); //nearest child
-        $(HREF_NOT); // href не начинается с http
+        $(ATTRIBUTE_NOT); // href не начинается с http
         $("#search").findAll(".g").find(attribute("data-hveid", "CAUQAA")).should(visible); // фильтры: по id, по классу, по параметру data-hveid
     }
 }

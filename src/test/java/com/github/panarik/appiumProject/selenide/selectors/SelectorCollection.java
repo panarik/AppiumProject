@@ -13,7 +13,7 @@ public class SelectorCollection extends BaseTest {
         $$(ID_CLASS);
         $$(CHILD_LI_FIRST);
         $$(CHILD_LI_LAST);
-        $$(CHILD_LI_SECOND);
+        $$(CHILD_LI_2);
     }
 
 }

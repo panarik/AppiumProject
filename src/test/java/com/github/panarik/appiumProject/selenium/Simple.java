@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
 import static com.github.panarik.appiumProject.locators.LocatorCSS.*;
+import static com.github.panarik.appiumProject.locators.LocatorsXPath.*;
 
 public class Simple {
 
@@ -33,27 +34,19 @@ public class Simple {
         input.sendKeys("java");
         input.sendKeys(Keys.ENTER);
 
+        //ToDo: ??
+//        WebElement resultNumberSix = driver.findElement(By.xpath(TAG_CLASS_NUMBER));
         WebElement body = driver.findElement(By.cssSelector(TAG_BODY)); //по тегу
-        WebElement navBar = driver.findElement(By.cssSelector(ID)); //по id
-        WebElement navBarClass = driver.findElement(By.cssSelector(CLASS)); //по классу
-        WebElement topperClass = driver.findElement(By.cssSelector(CLASS_MANY)); //по классам
-        WebElement topperClass2 = driver.findElement(By.cssSelector(CLASS_ATTRIBUTE)); //по классу и значению параметра
-        WebElement input2 = driver.findElement(By.cssSelector(ATTRIBUTE2)); //по значению параметра
         List<WebElement> role = driver.findElements(By.cssSelector(ATTRIBUTE1)); //список по параметру
-        List<WebElement> divRole = driver.findElements(By.cssSelector(DIV_ATTRIBUTE)); //список тегов с данным параметром
-        List<WebElement> divRoleFirst = driver.findElements(By.cssSelector(TAG_DIV_ATTRIBUTE_BEGIN)); //список тегов со значением параметра начинаются на present
-        List<WebElement> divRoleLast = driver.findElements(By.cssSelector(TAG_DIV_ATTRIBUTE_END)); //список тегов со значением параметра заканчиваются на ink
-        List<WebElement> divNotClass = driver.findElements(By.cssSelector(CLASS_NOT)); //список тегов которые не имеют класс "col"
+        WebElement className = driver.findElement(By.className("className"));
+        WebElement id = driver.findElement(By.id("id"));
+        WebElement linkText = driver.findElement(By.linkText("linkText")); //exact text
+        WebElement name = driver.findElement(By.name("linkText")); //attribute name
+        WebElement tagName = driver.findElement(By.tagName("tagName")); //attribute tagName
 
 
         Assertions.assertTrue(input.isDisplayed());
-        Assertions.assertTrue(input2.isDisplayed());
         Assertions.assertTrue(body.isDisplayed());
-        Assertions.assertTrue(navBar.isDisplayed());
-        Assertions.assertTrue(navBarClass.isDisplayed());
-        Assertions.assertTrue(topperClass.isDisplayed());
-
-
     }
 
     @AfterAll
