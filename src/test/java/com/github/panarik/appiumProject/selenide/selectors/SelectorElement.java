@@ -13,7 +13,7 @@ public class SelectorElement extends BaseTest {
     @Test
     public void selectorElement() {
         //один фильтр CSS
-        $(BODY).should(visible);
+        $(TAG_BODY).should(visible);
         $(ID).should(visible);
         $(CLASS_MANY).should(visible);
         $(ATTRIBUTE).should(visible);
@@ -25,11 +25,10 @@ public class SelectorElement extends BaseTest {
         $(byText("Картинки")).should(visible); //find by text
 
         //несколько фильтров
-        $("#search .g [data-hveid]").should(visible); // фильтры: по id, по классу, по параметру data-hveid
-//        $("#search .g [data-hveid='CAUQAA']").should(visible); // фильтры: по id, по классу, по параметру data-hveid
-        $("div[class='eKjLze'] div.yuRUbf").should(visible); //фильтры: по классу eKjLze ищем child с классом yuRUbf
-        $("div[class='eKjLze'] > div.g").should(visible); //nearest child
-        $("a:not(href^='http')"); // href не начинается с http
+        $(ID_CLASS_ATTRIBUTE1).should(visible);
+        $(CLASS_CHILD).should(visible);
+        $(CLASS_CHILD_NEAREST).should(visible); //nearest child
+        $(HREF_NOT); // href не начинается с http
         $("#search").findAll(".g").find(attribute("data-hveid", "CAUQAA")).should(visible); // фильтры: по id, по классу, по параметру data-hveid
     }
 }
