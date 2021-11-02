@@ -31,7 +31,7 @@ public class Simple {
     @Test
     public void test1() {
         WebElement input = driver.findElement(By.name("q"));
-        input.sendKeys("java");
+        input.sendKeys("selenium");
         input.sendKeys(Keys.ENTER);
 
         //ToDo: ??

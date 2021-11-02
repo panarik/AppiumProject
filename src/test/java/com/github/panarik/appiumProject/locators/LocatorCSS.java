@@ -2,7 +2,7 @@ package com.github.panarik.appiumProject.locators;
 
 public class LocatorCSS {
 
-    //одиночные
+    //single
     public static final String TAG_BODY = "body"; //тег body
     public static final String TAG_DIV = "div"; //тег div
     public static final String ID = "#main"; //find by id
@@ -10,7 +10,7 @@ public class LocatorCSS {
     public static final String ATTRIBUTE1 = "[role]"; //find by attribute key
     public static final String ATTRIBUTE2 = "[role='main']"; //find by attribute key and value
 
-    //комбинированные
+    //combine
     public static final String DIV_ATTRIBUTE = "div[role]"; //tag div with attribute "role";
     public static final String CLASS_MANY = ".gLFyf.gsfi"; //className and className
     public static final String ID_CLASS = "#search .g"; //id and className
