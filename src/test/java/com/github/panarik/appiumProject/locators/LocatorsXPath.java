@@ -5,6 +5,7 @@ public class LocatorsXPath {
     //$x("//html/body/")
     //single
     public static String body = "//html/body";
+    public static String ID = "//div[@id ='someId']";// find div with id
     public static String EXACT_TEXT = "//h3[text()='Some text']"; // h3 with text 'Some text'
     public static String CLASS_NUMBER = "//div[@class='g'][6]"; // 6-th div with class 'g'
     public static String CLASS_LAST = "//div[@class='g'][last()]"; // last div with class 'g'

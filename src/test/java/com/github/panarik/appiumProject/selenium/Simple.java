@@ -1,26 +1,21 @@
 package com.github.panarik.appiumProject.selenium;
 
+import com.github.panarik.appiumProject.selenium.base.BaseTest;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 //
 
+import java.time.Duration;
 import java.util.List;
 
 import static com.github.panarik.appiumProject.locators.LocatorCSS.*;
-import static com.github.panarik.appiumProject.locators.LocatorsXPath.*;
 
-public class Simple {
-
-    private static WebDriver driver;
-
-    @BeforeAll
-    public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Driver\\chromedriver.exe");
-    }
+public class Simple extends BaseTest {
 
     @BeforeEach
     public void init() {
@@ -45,12 +40,8 @@ public class Simple {
         WebElement tagName = driver.findElement(By.tagName("tagName")); //attribute tagName
 
 
+
         Assertions.assertTrue(input.isDisplayed());
         Assertions.assertTrue(body.isDisplayed());
-    }
-
-    @AfterAll
-    public static void shutdown(){
-        driver.close();
     }
 }
