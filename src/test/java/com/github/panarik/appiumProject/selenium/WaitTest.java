@@ -3,11 +3,10 @@ package com.github.panarik.appiumProject.selenium;
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -50,22 +49,37 @@ public class WaitTest extends BaseTest {
         driver.findElement(By.cssSelector(".card.fltResult"));
     }
 
+    //неявное ожидание
     @Test
     public void test_Implicit_driverPageLoad() {
         picDate();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(2));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         try {
             search.click();
-        } catch (TimeoutException e) {
+        } catch (WebDriverException e) {
             System.err.println("Search button does not found!");
         }
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(2));
+        //ToDo. выкидывает ошибку:
+        // поток:  AsyncHttpClient-1-4.
+        // Класс: org.asynchttpclient.netty.handler.WebSocketHandler - onError
+        // Подумать почему.
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         try {
             driver.findElement(By.cssSelector(".card.fltResult"));
-        } catch (TimeoutException e) {
+        } catch (WebDriverException e) {
             System.err.println("RESULT AIRLINES CARDS haz not found!");
         }
 
+    }
+
+    //явное ожидание
+    @Test
+    public void test_explicit() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        picDate();
+        wait.until(ExpectedConditions.visibilityOf(search));
+        search.click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".card.fltResult")));
     }
 
     private void picDate() {
