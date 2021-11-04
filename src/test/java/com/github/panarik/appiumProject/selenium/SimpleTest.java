@@ -15,7 +15,7 @@ import java.util.List;
 
 import static com.github.panarik.appiumProject.locators.LocatorCSS.*;
 
-public class Simple extends BaseTest {
+public class SimpleTest extends BaseTest {
 
     @BeforeEach
     public void init() {

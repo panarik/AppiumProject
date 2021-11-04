@@ -86,13 +86,11 @@ public class WaitTest extends BaseTest {
         WebElement fromEdit = driver.findElement(By.id("FromSector_show"));
         WebElement toEdit = driver.findElement(By.id("Editbox13_show"));
         search = driver.findElement(By.cssSelector("[value='Search']"));
-
         //выбираем дату вылета
         WebElement dateDeparture = driver.findElement(By.id("ddate"));
         dateDeparture.click();
         WebElement fromDate = driver.findElement(By.cssSelector("[id='fst_" + getDate(1) + "/11/2021']"));
         fromDate.click();
-
         //выбираем дату прилета
         WebElement dateArrive = driver.findElement(By.id("rdate"));
         dateArrive.click();
@@ -109,14 +107,4 @@ public class WaitTest extends BaseTest {
         System.out.println("day of month: " + dayOfMonth + ", day of week: " + dayOfWeek);
         return dayOfWeek + "_" + dayOfMonth;
     }
-
-//    //неявное ожидание
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-//
-//    //явное ожидание
-//    WebElement element = new WebDriverWait(driver, Duration.ofSeconds(10))
-//            .until(ExpectedConditions.presenceOfElementLocated(By.id("someId")));
-
-
 }

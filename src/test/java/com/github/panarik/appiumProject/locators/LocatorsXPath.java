@@ -1,8 +1,16 @@
 package com.github.panarik.appiumProject.locators;
 
+import com.github.panarik.appiumProject.selenium.base.BaseTest;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class LocatorsXPath {
 
     //$x("//html/body/")
+    //html/body
+
     //single
     public static String body = "//html/body";
     public static String ID = "//div[@id ='someId']";// find div with id
