@@ -12,7 +12,6 @@ public class AttributeTest extends BaseTest {
 
     @BeforeEach
     public void init() {
-        driver = new ChromeDriver();
         driver.get("https://www.avito.ru");
     }
 

@@ -20,7 +20,6 @@ public class WaitTest extends BaseTest {
 
     @BeforeEach
     public void init() {
-        driver = new ChromeDriver();
         driver.get("https://www.easemytrip.com/");
         driver.manage().window().fullscreen();
     }

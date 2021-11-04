@@ -19,7 +19,6 @@ public class SimpleTest extends BaseTest {
 
     @BeforeEach
     public void init() {
-        driver = new ChromeDriver();
         driver.get("https://www.google.com");
     }
 
