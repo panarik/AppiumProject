@@ -18,7 +18,6 @@ public class BaseTest {
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", "C:\\Tools\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().getPageLoadTimeout();
     }
 
     protected void goToTransport() {
