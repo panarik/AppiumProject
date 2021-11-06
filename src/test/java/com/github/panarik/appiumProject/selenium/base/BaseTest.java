@@ -1,8 +1,8 @@
 package com.github.panarik.appiumProject.selenium.base;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +18,7 @@ public class BaseTest {
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", "C:\\Tools\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
     }
 
     protected void goToTransport() {
@@ -30,11 +31,8 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
-
-
     @AfterAll
     public static void shutdown(){
-        driver.close();
+        driver.quit();
     }
-
 }

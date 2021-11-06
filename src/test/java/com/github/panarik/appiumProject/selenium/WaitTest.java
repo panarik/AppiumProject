@@ -1,6 +1,7 @@
 package com.github.panarik.appiumProject.selenium;
 
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
@@ -14,11 +15,11 @@ import java.util.*;
 
 public class WaitTest extends BaseTest {
 
+    private static final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     private static WebElement search;
 
     @BeforeEach
     public void init() {
-        driver.manage().window().fullscreen();
     }
 
     //неявное ожидание
@@ -47,41 +48,33 @@ public class WaitTest extends BaseTest {
         driver.findElement(By.cssSelector(".card.fltResult"));
     }
 
-    //неявное ожидание
-    @Test
-    public void test_Implicit_driverPageLoad() {
-        driver.get("https://www.easemytrip.com/");
-        picDate();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
-        try {
-            search.click();
-        } catch (WebDriverException e) {
-            System.err.println("Search button does not found!");
-        }
-        //ToDo. выкидывает ошибку:
-        // поток:  AsyncHttpClient-1-4.
-        // Класс: org.asynchttpclient.netty.handler.WebSocketHandler - onError
-        // Подумать почему.
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        try {
-            driver.findElement(By.cssSelector(".card.fltResult"));
-        } catch (WebDriverException e) {
-            System.err.println("RESULT AIRLINES CARDS haz not found!");
-        }
-
-    }
-
-    //явное ожидание
+    //явное ожидание (появления)
     @Test
     public void test_explicit() {
         driver.get("https://www.easemytrip.com");
         driver.manage().window().fullscreen();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         picDate();
         wait.until(ExpectedConditions.visibilityOf(search));
         search.click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".card.fltResult")));
     }
+
+    //явное ожидание (исчезновения)
+    @Test
+    public void test_disappear(){
+        driver.get("https://pagination.js.org");
+        List<WebElement> elements = driver.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li"));
+        List<WebElement> pages = driver.findElements(By.xpath("//div[@class='paginationjs']//li"));
+        pages.get(2).click(); //перелистываем на вторую страницу
+        wait.until(ExpectedConditions.stalenessOf(elements.get(5))); //ждем пока пропадет первая страница (пятый элемент)
+        elements = driver.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li")); //получаем список с обновленной страницы
+        for(WebElement e : elements) {
+            System.out.print(" :"+e.getText());
+        }
+        Assertions.assertEquals(elements.get(0).getText(), "11");
+    }
+
+
 
     private void picDate() {
         search = driver.findElement(By.cssSelector("[value='Search']"));
@@ -95,7 +88,6 @@ public class WaitTest extends BaseTest {
 
     private String getDate(int appendDays) {
         DateFormat day = new SimpleDateFormat("dd");
-        DateFormat week = new SimpleDateFormat("W");
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
         calendar.add(Calendar.DAY_OF_MONTH, appendDays);
         String dayOfMonth = day.format(calendar.getTime());
