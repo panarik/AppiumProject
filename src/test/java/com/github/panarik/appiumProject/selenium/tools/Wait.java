@@ -3,24 +3,70 @@ package com.github.panarik.appiumProject.selenium.tools;
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class Wait extends BaseTest {
 
-    private static final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-    private WebElement element;
 
-    private void waitersExample(){
+    private WebElement element;
+    private List<WebElement> elements;
+    private static final By locator = By.xpath("some xPath");
+
+    private void waitersExample() {
 
         //attribute
-        wait.until(ExpectedConditions.attributeContains(element, "id", "some"));
-        wait.until(ExpectedConditions.attributeToBe(element, "id", "some"));
-        wait.until(ExpectedConditions.attributeToBeNotEmpty(element, "id"));
+        wait.until(attributeContains(element, "id", "contains some"));
+        wait.until(attributeToBe(element, "id", "be some"));
+        wait.until(attributeToBeNotEmpty(element, "id"));
 
-        //
+        //behaviour
+        wait.until(elementToBeSelected(element));
+        wait.until(elementToBeClickable(element));
+
+        //invisibility
+        wait.until(invisibilityOf(element));
+        wait.until(invisibilityOfAllElements(elements));
+        wait.until(invisibilityOfElementLocated(locator));
+        wait.until(invisibilityOfElementWithText(locator, "some text"));
+
+        //invisibility
+        wait.until(visibilityOf(element));
+        wait.until(visibilityOfAllElements(elements));
+        wait.until(visibilityOfElementLocated(locator));
+
+        //not
+        wait.until(not(titleIs("some title")));
+
+        //quantity
+        wait.until(numberOfElementsToBe(locator, 5));
+        wait.until(numberOfElementsToBeLessThan(locator, 10));
+        wait.until(numberOfElementsToBeMoreThan(locator, 3));
+
+        //appear
+        wait.until(presenceOfElementLocated(locator)); //element appear on DOM
+        wait.until(presenceOfAllElementsLocatedBy(locator)); //element appear on web page
+
+        //disappear
+        wait.until(stalenessOf(element));
+
+        //have text
+        wait.until(textToBe(locator, "some text")); //exact text
+        wait.until(textToBePresentInElement(element, "some text")); //contains text
+        wait.until(textToBePresentInElementValue(element, "some text")); // text in attributes
+
+        //page titles
+        wait.until(titleIs("some text")); //exact text
+        wait.until(titleContains("some text")); //contains text
+
+        //URL
+        wait.until(urlToBe("URL")); //exact URL
+        wait.until(urlContains("someText")); // URL contains text
+        wait.until(urlMatches("s.e r.x")); //use regex
 
     }
 

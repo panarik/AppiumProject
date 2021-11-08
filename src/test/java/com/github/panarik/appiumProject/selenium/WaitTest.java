@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
+
 public class WaitTest extends BaseTest {
 
     private static final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -54,9 +56,9 @@ public class WaitTest extends BaseTest {
         driver.get("https://www.easemytrip.com");
         driver.manage().window().fullscreen();
         picDate();
-        wait.until(ExpectedConditions.visibilityOf(search));
+        wait.until(visibilityOf(search));
         search.click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".card.fltResult")));
+        wait.until(presenceOfElementLocated(By.cssSelector(".card.fltResult")));
     }
 
     //явное ожидание (исчезновения)
@@ -66,7 +68,7 @@ public class WaitTest extends BaseTest {
         List<WebElement> elements = driver.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li"));
         List<WebElement> pages = driver.findElements(By.xpath("//div[@class='paginationjs']//li"));
         pages.get(2).click(); //перелистываем на вторую страницу
-        wait.until(ExpectedConditions.stalenessOf(elements.get(5))); //ждем пока пропадет первая страница (пятый элемент)
+        wait.until(stalenessOf(elements.get(5))); //ждем пока пропадет первая страница (пятый элемент)
         elements = driver.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li")); //получаем список с обновленной страницы
         for(WebElement e : elements) {
             System.out.print(" :"+e.getText());
