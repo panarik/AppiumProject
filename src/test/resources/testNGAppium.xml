@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
 <suite name="TestNG Appium">
     <listeners>
         <listener class-name="com.github.panarik.appiumProject.driver.AppListener"/>
     </listeners>
     <test name="TestAppiumSuite1">
+        <!-- run tests from packages -->
         <packages>
             <package name="com.github.panarik.appiumProject.tests"/>
         </packages>
-        <!-- набираем из классов -->
-<!--        <classes>-->
-<!--            <class name="com.github.panarik.appiumProject.testNG.appium.simple.BaseClass"/>-->
-<!--        </classes>-->
+        <!-- run tests from class files -->
+        <classes>
+            <class name="com.github.panarik.appiumProject.tests.AuthTest"/>
+        </classes>
 
     </test>
 </suite>
