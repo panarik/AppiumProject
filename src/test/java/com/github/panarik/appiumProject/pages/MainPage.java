@@ -8,13 +8,12 @@ import java.time.Duration;
 
 public class MainPage extends BasePage {
 
-    WebElement input_searchForm;
+    public WebElement input_searchForm;
 
     public MainPage() {
         driver.get("https://www.avito.ru/");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         input_searchForm = driver.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
-
     }
 
     public void search(String text) {

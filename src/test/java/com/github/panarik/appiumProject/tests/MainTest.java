@@ -4,7 +4,7 @@ import com.github.panarik.appiumProject.pages.MainPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class MainTest {
+public class MainTest extends BaseTest {
 
     private static MainPage main;
 
@@ -12,7 +12,6 @@ public class MainTest {
     public static void setup() {
         main = new MainPage();
     }
-
 
     @Test
     public void search() {
