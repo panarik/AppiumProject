@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG Samples">
-    <test name="TestSuite1">
 
+<suite name="TestNG Samples">
+
+    <test name="TestSuite1">
         <!-- передаем параметр в тесты -->
         <parameter name="db" value="SQL Parameter"/>
 
@@ -13,15 +14,14 @@
             </run>
         </groups>
 
-        <!-- набираем из пакетов -->
+        <!-- run tests from packages -->
         <packages>
             <package name="com.github.panarik.appiumProject.testNG.sample"/>
         </packages>
 
-        <!-- набираем из классов -->
+        <!-- run tests from class files -->
         <classes>
             <class name="com.github.panarik.appiumProject.testNG.sample.Test1"/>
         </classes>
-
     </test>
 </suite>
