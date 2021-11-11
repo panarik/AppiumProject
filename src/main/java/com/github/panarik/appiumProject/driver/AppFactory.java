@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class AppFactory {
 
-    public static AppiumDriver<MobileElement> driver;
+    public static AndroidDriver<MobileElement> driver;
     public static DesiredCapabilities cap;
 
     public static void setup() {
