@@ -1,7 +1,6 @@
 package com.github.panarik.appiumProject.driver;
 
 import com.github.panarik.appiumProject.util.DeviceSettings;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -12,10 +11,11 @@ import java.net.URL;
 
 public class AppFactory {
 
-    public static AndroidDriver<MobileElement> driver;
     public static DesiredCapabilities cap;
+    private static URL url;
 
     public static void setup() {
+        //device
         cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, DeviceSettings.setup().getPlatformName());
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceSettings.setup().getDeviceName());
@@ -26,19 +26,15 @@ public class AppFactory {
         cap.setCapability(MobileCapabilityType.APP, DeviceSettings.setup().getAppPath());
         cap.setCapability("unlockType", DeviceSettings.setup().getUnlockType());
         cap.setCapability("unlockKey", DeviceSettings.setup().getUnlockKey());
-        //driver
+
+        //set URL
         try {
-            driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+            url = new URL("http://127.0.0.1:4723/wd/hub");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        AppDriver.setDriver(driver);
-        System.out.println("Android driver is set");
+
+        //set driver
+        DriverAndroid.setDriver(new AndroidDriver<MobileElement>(url, cap));
     }
-
-    public static void quit() {
-        driver.quit();
-    }
-
-
 }

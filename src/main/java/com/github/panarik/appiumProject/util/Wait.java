@@ -1,6 +1,6 @@
 package com.github.panarik.appiumProject.util;
 
-import com.github.panarik.appiumProject.driver.AppDriver;
+import com.github.panarik.appiumProject.driver.DriverAndroid;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,7 +20,7 @@ public class Wait {
     public static void element(int seconds, String elementPath) {
         for (int s = 0; s < seconds + 1; s++) {
             try {
-                AppiumDriver driver = AppDriver.getDriver();
+                AppiumDriver driver = DriverAndroid.getDriver();
                 driver.findElementById(elementPath);
             } catch (NoSuchElementException e) {
                 System.out.println("waiting " + s + " seconds for: " + elementPath);
@@ -34,7 +34,7 @@ public class Wait {
     }
 
     public static void element(By element){
-        new WebDriverWait(AppDriver.getDriver(), 20).until(ExpectedConditions.presenceOfElementLocated(element));
+        new WebDriverWait(DriverAndroid.getDriver(), 20).until(ExpectedConditions.presenceOfElementLocated(element));
     }
 
 
