@@ -8,7 +8,7 @@
         </packages>
         <!-- набираем из классов -->
 <!--        <classes>-->
-<!--            <class name="com.github.panarik.appiumProject.testNG.appium.simple.BaseClass"/>-->
+<!--            <class name="com.github.panarik.appiumProject.testNG.appium.simple.util.BaseClass"/>-->
 <!--        </classes>-->
 
     </test>

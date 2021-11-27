@@ -1,7 +1,6 @@
 package com.github.panarik.appiumProject.testNG.appium.simple.tests;
 
-import com.github.panarik.appiumProject.testNG.appium.simple.BaseClass;
-import org.openqa.selenium.NoSuchElementException;
+import com.github.panarik.appiumProject.testNG.appium.simple.util.BaseClass;
 import org.testng.annotations.Test;
 
 import static com.github.panarik.appiumProject.testNG.appium.simple.util.Util.waitForElement;
