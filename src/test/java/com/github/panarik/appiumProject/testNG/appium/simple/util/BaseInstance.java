@@ -1,17 +1,13 @@
 package com.github.panarik.appiumProject.testNG.appium.simple.util;
 
+import com.github.panarik.appiumProject.testNG.appium.simple.screen.signIn.SignIn;
+import com.github.panarik.appiumProject.testNG.appium.simple.screen.signIn.SignInAndroid;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -34,18 +30,22 @@ public class BaseInstance {
     //создаём объект инстанса, чтобы через него получать отдельно драйвер iOS и отдельно драйвер Android, если это необходимо
     public static BaseInstance instance = new BaseInstance();
 
-    public AppiumDriver<MobileElement> appiumDriver; // Создаём общий драйвер. В дальнейшем он будет преобразован в androidDriver или iOSDriver при подключении конкретного устройства.
-    public AndroidDriver<MobileElement> androidDriver;
-    public IOSDriver<MobileElement> iOSDriver;
+    private AppiumDriver<MobileElement> driver; // Создаём общий драйвер. В дальнейшем он будет преобразован в androidDriver или iOSDriver при подключении конкретного устройства.
+
+
+    // Создаем переменные для всех экранов.
+    // В дальнейшем этим переменным будет присвоен Android или iOS класс в зависимости от подключенного к проекту девайса.
+    public SignIn signIn;
 
     public void start() {
-        if (appiumDriver !=null) {
+        if (driver != null) {
             return;
         }
+
         // Начинаем установку девайса.
         DesiredCapabilities cap = new DesiredCapabilities();
         switch (osName) {
-            case ("ANDROD") : {
+            case ("ANDROD"): {
                 cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
                 cap.setCapability(MobileCapabilityType.VERSION, "10");
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Redmi 9");
@@ -57,25 +57,34 @@ public class BaseInstance {
 
                 try {
                     URL url = new URL("http://127.0.0.1:4723/wd/hub");
-                    androidDriver = new AndroidDriver<>(url, cap);
+                    driver = new AndroidDriver<>(url, cap);
                 } catch (
                         MalformedURLException e) {
                     e.printStackTrace();
                 }
-                System.out.println(androidDriver.getSessionDetails());
-                System.out.println(androidDriver.getSettings());
-                androidDriver.unlockDevice();
+                System.out.println(driver.getSessionDetails());
+                System.out.println(driver.getSettings());
+
+                // Перенаправляем все экраны на Android классы.
+                // В тестах будут дергать объекты интерфесов, а интерфейсы в данном случае будут ссылаться на Android экраны.
+                // Также Android наследуют класс AndroidBase в котором собраны все необходимые методы для прогона тестов на Android
+                signIn = new SignInAndroid();
+
                 break;
             }
-            case ("IOS") : break; // Пока пусто. В дальнейшем тут будет сетап iOS
+            case ("IOS"):
+                break; // Пока пусто. В дальнейшем тут будет сетап iOS
             default:
         }
     }
 
+    public void stop() {
+        if (driver != null) driver.quit();
+    }
 
-
-
-
+    public AppiumDriver<MobileElement> getDriver() {
+        return driver;
+    }
 
 
 }
