@@ -16,6 +16,7 @@ import java.net.URL;
 public class BaseClass implements DeviceSettings {
 
     public static AndroidDriver<MobileElement> driver;
+    //
 
     @BeforeTest
     public void setup() {
