@@ -2,8 +2,6 @@ package com.github.panarik.appiumProject.testNG.appium.simple.util;
 
 import org.openqa.selenium.NoSuchElementException;
 
-import static com.github.panarik.appiumProject.testNG.appium.simple.BaseClass.driver;
-
 public class Util {
 
     public static void waitForElement(int seconds, String elementPath) {
