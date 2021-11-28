@@ -10,6 +10,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import static com.github.panarik.appiumProject.testNG.appium.simple.util.Configs.GLOBAL_WAITING;
 
 /**
  * Класс, с единым инстансом для использования в тестах.
@@ -65,11 +68,13 @@ public class BaseInstance {
                 System.out.println(driver.getSessionDetails());
                 System.out.println(driver.getSettings());
 
+                //сетап дефолтного ожидания
+                driver.manage().timeouts().implicitlyWait(GLOBAL_WAITING, TimeUnit.SECONDS);
+
                 // Перенаправляем все экраны на Android классы.
-                // В тестах будут дергать объекты интерфесов, а интерфейсы в данном случае будут ссылаться на Android экраны.
+                // В тестах будут дергать объекты интерфейсов, а интерфейсы в данном случае будут ссылаться на Android экраны.
                 // Также Android наследуют класс AndroidBase в котором собраны все необходимые методы для прогона тестов на Android
                 signIn = new SignInAndroid();
-
                 break;
             }
             case ("IOS"):
