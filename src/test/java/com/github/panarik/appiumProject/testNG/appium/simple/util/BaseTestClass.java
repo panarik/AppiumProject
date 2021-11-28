@@ -12,6 +12,7 @@ public class BaseTestClass {
     @BeforeMethod
     public void setup() {
         BaseInstance.instance.start();
+
     }
 
     @AfterTest

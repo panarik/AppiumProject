@@ -4,18 +4,40 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NoSuchElementException;
 
-public class AndroidBase {
+/**
+ * Класс, в котором собраны все методы для запуска теста на Android
+ */
+public class AndroidBase extends Base {
 
     protected AndroidDriver<MobileElement> androidDriver = (AndroidDriver<MobileElement>) BaseInstance.instance.getDriver();
 
-    protected void click(MobileItem item) {
-        androidDriver.findElement(item.getLocatorType(), item.getLocator()).click();
+    public void unlockDevice() {
+        androidDriver.unlockDevice();
+    }
+
+    public MobileElement getElement(MobileItem mobileItem) {
+        return androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocator());
+    }
+
+
+    /**
+     * Метод делает клик по {@param mobileItem}
+     *
+     * @param mobileItem
+     */
+    protected void click(MobileItem mobileItem) {
+        try {
+            androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocator()).click();
+        } catch (IllegalArgumentException e) {
+            failAfterWaiting(mobileItem);
+        }
     }
 
 
     /**
      * Метод ожидающий элемента указанное число секунд.
      * Метод каждую секунду пытается найти элемент.
+     *
      * @param item
      * @param seconds
      */
