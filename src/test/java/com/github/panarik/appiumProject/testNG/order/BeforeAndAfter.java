@@ -7,7 +7,7 @@ public class BeforeAndAfter {
     String s = "Text";
 
     static {
-        System.out.println("TestBeforeMethod static code");
+        System.out.println("Class with '@Before' static code block");
     }
 
     @BeforeMethod
