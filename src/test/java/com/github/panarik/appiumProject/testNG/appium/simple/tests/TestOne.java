@@ -1,6 +1,5 @@
 package com.github.panarik.appiumProject.testNG.appium.simple.tests;
 
-import com.github.panarik.appiumProject.testNG.appium.simple.util.BaseTestClass;
 import com.github.panarik.appiumProject.testNG.appium.simple.util.CommonActions;
 import org.testng.annotations.Test;
 

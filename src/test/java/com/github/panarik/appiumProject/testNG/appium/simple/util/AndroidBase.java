@@ -7,18 +7,17 @@ import org.openqa.selenium.NoSuchElementException;
 /**
  * Класс, в котором собраны все методы для запуска теста на Android
  */
-public class AndroidBase extends Base {
+public class AndroidBase extends BaseTestClass {
 
-    protected AndroidDriver<MobileElement> androidDriver = (AndroidDriver<MobileElement>) BaseInstance.instance.getDriver();
+    AndroidDriver<MobileElement> androidDriver;
 
-    public void unlockDevice() {
-        androidDriver.unlockDevice();
+    public AndroidBase() {
+        this.androidDriver = controller.getAndroidDriver();
     }
 
     public MobileElement getElement(MobileItem mobileItem) {
         return androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocator());
     }
-
 
     /**
      * Метод делает клик по {@param mobileItem}
@@ -32,7 +31,6 @@ public class AndroidBase extends Base {
             failAfterWaiting(mobileItem);
         }
     }
-
 
     /**
      * Метод ожидающий элемента указанное число секунд.

@@ -7,9 +7,7 @@ import com.github.panarik.appiumProject.testNG.appium.simple.util.AndroidBase;
  */
 public class SignInAndroid extends AndroidBase implements SignIn {
 
-
     @Override
     public void checkScreen() {
-
     }
 }
