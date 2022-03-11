@@ -2,6 +2,7 @@ package com.github.panarik.appiumProject.selenium;
 
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -47,4 +48,5 @@ public class WindowsTest extends BaseTest {
         Thread.sleep(3000); //debug
         driver.close();
     }
+
 }

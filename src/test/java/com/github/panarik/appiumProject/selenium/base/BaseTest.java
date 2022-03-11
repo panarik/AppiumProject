@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 import java.time.Duration;
@@ -16,8 +14,9 @@ public class BaseTest {
     protected WebDriver driver; //driver for Selenium tests
     protected WebDriverWait wait;
 
-    @BeforeMethod
+    @BeforeTest
     public void setup() {
+        System.out.println("Setup driver.");
         driver = new DriverBase().setupDriver();
     }
 
@@ -31,8 +30,9 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
-    @AfterMethod
+    @AfterTest
     public void shutdown(){
+        System.out.println("Shutdown driver.");
         driver.quit();
     }
 }

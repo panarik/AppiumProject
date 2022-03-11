@@ -1,6 +1,5 @@
 package com.github.panarik.appiumProject.selenide;
 
-
 import com.codeborne.selenide.ElementsCollection;
 import com.github.panarik.appiumProject.selenide.base.BaseTest;
 import org.testng.annotations.Test;

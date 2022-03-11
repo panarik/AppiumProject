@@ -3,15 +3,12 @@ package com.github.panarik.appiumProject.selenium.tools;
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class Wait extends BaseTest {
-
 
     private WebElement element;
     private List<WebElement> elements;
@@ -67,8 +64,6 @@ public class Wait extends BaseTest {
         wait.until(urlToBe("URL")); //exact URL
         wait.until(urlContains("someText")); // URL contains text
         wait.until(urlMatches("s.e r.x")); //use regex
-
     }
-
 
 }
