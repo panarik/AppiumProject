@@ -1,19 +1,19 @@
 package com.github.panarik.appiumProject.selenium;
 
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.Set;
 
 public class WindowsTest extends BaseTest {
 
-    private static JavascriptExecutor js = (JavascriptExecutor) driver;
-    private static String window_1; //first browser window
-    private static String window_2; //second browser window
+    private JavascriptExecutor js = (JavascriptExecutor) driver;
+    private String window_1; //first browser window
+    private String window_2; //second browser window
 
-    @BeforeEach
+    @BeforeMethod
     public void init(){
         driver.get("http://127.0.0.1:5500/modals.html");
     }

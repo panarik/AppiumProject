@@ -1,7 +1,7 @@
 package com.github.panarik.appiumProject.selenide.matchers;
 
 import com.codeborne.selenide.ElementsCollection;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selenide.$$;

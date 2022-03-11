@@ -1,12 +1,11 @@
 package com.github.panarik.appiumProject.selenium;
 
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,10 +16,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class WaitTest extends BaseTest {
 
-    private static final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    private static WebElement search;
+    private final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    private WebElement search;
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
     }
 
@@ -73,7 +72,7 @@ public class WaitTest extends BaseTest {
         for(WebElement e : elements) {
             System.out.print(" :"+e.getText());
         }
-        Assertions.assertEquals(elements.get(0).getText(), "11");
+        Assert.assertEquals(elements.get(0).getText(), "11");
     }
 
 

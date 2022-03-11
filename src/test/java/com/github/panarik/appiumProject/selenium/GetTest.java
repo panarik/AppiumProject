@@ -1,15 +1,15 @@
 package com.github.panarik.appiumProject.selenium;
 
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class GetTest extends BaseTest {
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
         driver.get("https://www.avito.ru");
     }
@@ -20,7 +20,7 @@ public class GetTest extends BaseTest {
         WebElement score = driver.findElement(By.xpath("//span[@class='page-title-count-oYIga']"));
         String s = score.getText();
         System.out.println(s);
-        Assertions.assertTrue(s.length()>5);
+        Assert.assertTrue(s.length()>5);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class GetTest extends BaseTest {
         WebElement stuff = driver.findElement(By.xpath("//a[text()='Личные вещи']"));
         String stuffColor = stuff.getCssValue("color");
         System.out.println(stuffColor);
-        Assertions.assertEquals(stuffColor, "rgba(0, 156, 240, 1)");
+        Assert.assertEquals(stuffColor, "rgba(0, 156, 240, 1)");
     }
 
 }

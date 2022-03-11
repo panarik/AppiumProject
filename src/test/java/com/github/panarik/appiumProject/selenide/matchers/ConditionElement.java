@@ -1,11 +1,10 @@
 package com.github.panarik.appiumProject.selenide.matchers;
 
 import com.github.panarik.appiumProject.selenide.base.BaseTest;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class ConditionElement extends BaseTest {
 

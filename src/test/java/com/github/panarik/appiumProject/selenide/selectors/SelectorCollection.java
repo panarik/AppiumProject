@@ -1,7 +1,7 @@
 package com.github.panarik.appiumProject.selenide.selectors;
 
 import com.github.panarik.appiumProject.selenide.base.BaseTest;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$$;
 import static com.github.panarik.appiumProject.locators.LocatorCSS.*;

@@ -1,8 +1,8 @@
 package com.github.panarik.appiumProject.selenide.tools;
 
 import com.codeborne.selenide.SelenideElement;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class Actions {
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
         open("https://todomvc.com/examples/emberjs/");
     }

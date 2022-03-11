@@ -1,17 +1,17 @@
 package com.github.panarik.appiumProject.selenium;
 
 import com.github.panarik.appiumProject.selenium.base.BaseTest;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class ModalsTest extends BaseTest {
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
         //run VisualStudio live server plugin for open html page from file
         driver.get("http://127.0.0.1:5500/modals.html");

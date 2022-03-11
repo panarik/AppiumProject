@@ -1,13 +1,14 @@
 package com.github.panarik.appiumProject.selenide.base;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.BeforeMethod;
+
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
 
 
 public class BaseTest {
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
         open("https://www.google.com/");
         element(byName("q")).setValue("selenide").pressEnter();
