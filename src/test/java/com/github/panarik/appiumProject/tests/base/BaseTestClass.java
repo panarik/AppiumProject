@@ -2,6 +2,7 @@ package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.model.screen.signIn.SignIn;
 import com.github.panarik.appiumProject.model.screen.signIn.SignInAndroid;
+import com.github.panarik.appiumProject.model.screen.signIn.SignInIOS;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -22,9 +23,9 @@ public class BaseTestClass {
         String osName = "ANDROID"; // Можно сделать переключение на iOS.
         switch (osName) {
             case ("ANDROID"): {
-                System.out.println("Driver: setup");
+                System.out.println("Android driver: setup");
                 getController().setupAndroid();
-                System.out.println("Driver: ready");
+                System.out.println("Android driver: ready");
 
                 // Перенаправляем все экраны на Android классы.
                 // В тестах будут дергать переменные интерфейсов, а интерфейсы в данном случае будут ссылаться на Android экраны.
@@ -32,12 +33,14 @@ public class BaseTestClass {
                 signIn = new SignInAndroid();
             }
             case ("IOS"): {
-
+                System.out.println("iOS driver: setup");
+                getController().setupIOS();
+                System.out.println("iOS driver: ready");
                 // Перенаправляем все экраны на Android классы.
                 // В тестах будут дергать переменные интерфейсов, а интерфейсы в данном случае будут ссылаться на Android экраны.
                 // Также Android наследуют класс AndroidBase в котором собраны все необходимые методы для прогона тестов на Android
                 //ToDo:
-                //signIn = new SignInIOS();
+                signIn = new SignInIOS();
             }
         }
     }
@@ -45,7 +48,6 @@ public class BaseTestClass {
     @AfterTest
     public void shutdown() {
         getController().stop();
-        System.out.println("Driver has shutdown.");
     }
 
 }
