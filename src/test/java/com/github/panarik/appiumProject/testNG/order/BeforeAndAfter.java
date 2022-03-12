@@ -2,12 +2,12 @@ package com.github.panarik.appiumProject.testNG.order;
 
 import org.testng.annotations.*;
 
-public class BeforeAndAfter {
+public class BeforeAndAfter extends Root {
 
     String s = "Text";
 
     static {
-        System.out.println("Class with '@Before' static code block");
+        System.out.println("Child class with static code block");
     }
 
     @BeforeMethod
