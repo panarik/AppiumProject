@@ -1,9 +1,0 @@
-{
-  "platformName": "ANDROID",
-  "version": "11",
-  "deviceName" : "Redmi Note 9",
-  "udid" : "83209d47",
-  "appPath" : "C:\\Users\\AALEVIN8\\Documents\\GitHub\\AppiumProject\\src\\test\\resources\\apps\\app-SmartFeatures-debug.apk",
-  "unlockType" : "pattern",
-  "unlockKey" : "3214"
-}

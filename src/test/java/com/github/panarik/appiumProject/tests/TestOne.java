@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.testNG.appium.simple.tests;
+package com.github.panarik.appiumProject.tests;
 
-import com.github.panarik.appiumProject.testNG.appium.simple.util.CommonActions;
+import com.github.panarik.appiumProject.base.CommonActions;
 import org.testng.annotations.Test;
 
 public class TestOne extends CommonActions {

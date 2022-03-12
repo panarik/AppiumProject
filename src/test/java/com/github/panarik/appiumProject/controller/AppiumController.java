@@ -1,5 +1,6 @@
-package com.github.panarik.appiumProject.testNG.appium.simple.util;
+package com.github.panarik.appiumProject.controller;
 
+import com.github.panarik.appiumProject.model.base.Configs;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -9,8 +10,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
-import static com.github.panarik.appiumProject.testNG.appium.simple.util.Configs.GLOBAL_WAITING;
 
 /**
  * Класс, с единым инстансом для использования в тестах.
@@ -44,7 +43,7 @@ public class AppiumController {
         System.out.println(androidDriver.getSettings());
 
         //сетап дефолтного ожидания
-        androidDriver.manage().timeouts().implicitlyWait(GLOBAL_WAITING, TimeUnit.SECONDS);
+        androidDriver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
     }
 
     public void setupIOS() {

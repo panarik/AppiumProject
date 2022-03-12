@@ -1,7 +1,9 @@
-package com.github.panarik.appiumProject.testNG.appium.simple.util;
+package com.github.panarik.appiumProject.base;
 
-import com.github.panarik.appiumProject.testNG.appium.simple.screen.signIn.SignIn;
-import com.github.panarik.appiumProject.testNG.appium.simple.screen.signIn.SignInAndroid;
+import com.github.panarik.appiumProject.controller.AppiumController;
+import com.github.panarik.appiumProject.model.base.MobileItem;
+import com.github.panarik.appiumProject.model.screen.signIn.SignIn;
+import com.github.panarik.appiumProject.model.screen.signIn.SignInAndroid;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;

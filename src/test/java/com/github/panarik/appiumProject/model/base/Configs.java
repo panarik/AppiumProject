@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.testNG.appium.simple.util;
+package com.github.panarik.appiumProject.model.base;
 
 public class Configs {
 
