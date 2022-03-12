@@ -23,7 +23,7 @@ public class AndroidController extends BaseController {
     }
 
     /**
-     * Метод делает клик по {@param mobileItem}
+     * Метод делает клик на {@link MobileItem}
      *
      * @param mobileItem
      */
@@ -36,11 +36,11 @@ public class AndroidController extends BaseController {
     }
 
     /**
-     * Метод ожидающий элемента указанное число секунд.
+     * Кустарное ожидание элемента {@link MobileItem} указанное число секунд.
      * Метод каждую секунду пытается найти элемент.
      *
-     * @param item
-     * @param seconds
+     * @param item    элемент {@link MobileItem}
+     * @param seconds количество секунд
      */
     protected void waitForElementSleep(MobileItem item, int seconds) {
         for (int s = 0; s < seconds + 1; s++) {

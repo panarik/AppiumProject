@@ -1,10 +1,7 @@
 package com.github.panarik.appiumProject.tests.base;
 
-import com.github.panarik.appiumProject.controller.AppiumController;
-import com.github.panarik.appiumProject.model.base.MobileItem;
 import com.github.panarik.appiumProject.model.screen.signIn.SignIn;
 import com.github.panarik.appiumProject.model.screen.signIn.SignInAndroid;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -17,21 +14,25 @@ public class BaseTestClass {
 
     // Создаем переменные для всех экранов.
     // В дальнейшем этим переменным будет присвоен Android или iOS класс в зависимости от подключенного к проекту девайса.
+    //ToDo: Можно вообще обойтись без переменных экрана, если методы каждого PageObject будут возвращать объект этого или другого экрана.
     protected SignIn signIn;
 
     @BeforeTest
     public void start() {
-        // Можно сделать переключение на iOS.
-        String osName = "ANDROID";
+        String osName = "ANDROID"; // Можно сделать переключение на iOS.
         switch (osName) {
-            case ("ANDROID") : {
+            case ("ANDROID"): {
+                System.out.println("Driver: setup");
                 getController().setupAndroid();
+                System.out.println("Driver: ready");
+
                 // Перенаправляем все экраны на Android классы.
                 // В тестах будут дергать переменные интерфейсов, а интерфейсы в данном случае будут ссылаться на Android экраны.
                 // Также Android наследуют класс AndroidBase в котором собраны все необходимые методы для прогона тестов на Android
                 signIn = new SignInAndroid();
             }
-            case ("IOS") : {
+            case ("IOS"): {
+
                 // Перенаправляем все экраны на Android классы.
                 // В тестах будут дергать переменные интерфейсов, а интерфейсы в данном случае будут ссылаться на Android экраны.
                 // Также Android наследуют класс AndroidBase в котором собраны все необходимые методы для прогона тестов на Android
@@ -44,6 +45,7 @@ public class BaseTestClass {
     @AfterTest
     public void shutdown() {
         getController().stop();
+        System.out.println("Driver has shutdown.");
     }
 
 }
