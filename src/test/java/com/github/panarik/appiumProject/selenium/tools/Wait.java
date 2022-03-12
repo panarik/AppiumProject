@@ -16,51 +16,51 @@ public class Wait extends BaseTest {
 
     private void waitersExample() {
 
-        //attribute
+        // Attribute
         wait.until(attributeContains(element, "id", "contains some"));
         wait.until(attributeToBe(element, "id", "be some"));
         wait.until(attributeToBeNotEmpty(element, "id"));
 
-        //behaviour
+        // Behaviour
         wait.until(elementToBeSelected(element));
         wait.until(elementToBeClickable(element));
 
-        //invisibility
+        // Invisibility
         wait.until(invisibilityOf(element));
         wait.until(invisibilityOfAllElements(elements));
         wait.until(invisibilityOfElementLocated(locator));
         wait.until(invisibilityOfElementWithText(locator, "some text"));
 
-        //invisibility
+        // Visibility
         wait.until(visibilityOf(element));
         wait.until(visibilityOfAllElements(elements));
         wait.until(visibilityOfElementLocated(locator));
 
-        //not
+        // Not
         wait.until(not(titleIs("some title")));
 
-        //quantity
+        // Quantity
         wait.until(numberOfElementsToBe(locator, 5));
         wait.until(numberOfElementsToBeLessThan(locator, 10));
         wait.until(numberOfElementsToBeMoreThan(locator, 3));
 
-        //appear
+        // Appear
         wait.until(presenceOfElementLocated(locator)); //element appear on DOM
         wait.until(presenceOfAllElementsLocatedBy(locator)); //element appear on web page
 
-        //disappear
+        // Disappear
         wait.until(stalenessOf(element));
 
-        //have text
+        // Have text
         wait.until(textToBe(locator, "some text")); //exact text
         wait.until(textToBePresentInElement(element, "some text")); //contains text
         wait.until(textToBePresentInElementValue(element, "some text")); // text in attributes
 
-        //page titles
+        // page titles
         wait.until(titleIs("some text")); //exact text
         wait.until(titleContains("some text")); //contains text
 
-        //URL
+        // URL
         wait.until(urlToBe("URL")); //exact URL
         wait.until(urlContains("someText")); // URL contains text
         wait.until(urlMatches("s.e r.x")); //use regex

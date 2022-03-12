@@ -20,13 +20,20 @@ public class BaseTest {
         driver = new DriverBase().setupDriver();
     }
 
+    //Примеры конфигов
+    private void config() {
+        //Waiters
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Wait for WebElement
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4)); // Wait for loading page
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(2)); // Wait for an asynchronous script
+    }
+
+    //выбираем категорию "Транспорт"
     protected void goToTransport() {
-        //выбираем категорию "Транспорт"
         WebElement category = driver.findElement(By.xpath("//select[@id='category']"));
         category.click();
         WebElement selectTransport = driver.findElement(By.xpath("//select[@id='category']//option[text()='Транспорт']"));
         selectTransport.click();
-        //ждем
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
