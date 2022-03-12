@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.base;
+package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.controller.AppiumController;
 import com.github.panarik.appiumProject.model.base.MobileItem;
@@ -13,8 +13,7 @@ import org.testng.annotations.BeforeTest;
  */
 public class BaseTestClass {
 
-    public AppiumController controller;
-    String osName = "ANDROID"; // Можно сделать переключение на iOS.
+    protected AppiumController controller;
 
     // Создаем переменные для всех экранов.
     // В дальнейшем этим переменным будет присвоен Android или iOS класс в зависимости от подключенного к проекту девайса.
@@ -22,6 +21,8 @@ public class BaseTestClass {
 
     @BeforeTest
     public void start() {
+        // Можно сделать переключение на iOS.
+        String osName = "ANDROID";
         switch (osName) {
             case ("ANDROID") : {
                 controller = new AppiumController();
