@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.testNG.appium.simple.screen.signIn;
+package com.github.panarik.appiumProject.model.screen.signIn;
 
 /**
  * Интерфейс, описывающий общие методы для экрана вне зависимости к какой платформе экран относится.

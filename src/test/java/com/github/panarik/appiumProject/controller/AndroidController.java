@@ -1,5 +1,7 @@
-package com.github.panarik.appiumProject.testNG.appium.simple.util;
+package com.github.panarik.appiumProject.controller;
 
+import com.github.panarik.appiumProject.base.BaseTestClass;
+import com.github.panarik.appiumProject.model.base.MobileItem;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NoSuchElementException;
@@ -7,11 +9,11 @@ import org.openqa.selenium.NoSuchElementException;
 /**
  * Класс, в котором собраны все методы для запуска теста на Android
  */
-public class AndroidBase extends BaseTestClass {
+public class AndroidController extends BaseTestClass {
 
     AndroidDriver<MobileElement> androidDriver;
 
-    public AndroidBase() {
+    public AndroidController() {
         this.androidDriver = controller.getAndroidDriver();
     }
 
