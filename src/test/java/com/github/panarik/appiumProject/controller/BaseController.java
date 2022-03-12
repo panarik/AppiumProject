@@ -6,7 +6,7 @@ import org.testng.Assert;
 public class BaseController {
 
     protected void failAfterWaiting(MobileItem mobileitem) {
-        Assert.fail("Элемент " + mobileitem.getName() + " не найден");
+        Assert.fail("Элемент " + mobileitem.getName() + " не найден.");
     }
 
 }
