@@ -29,7 +29,7 @@ public final class AppiumController {
     // Вызывается единственный объект
     // ToDo: подумать как будет работать с многопоточкой. Обернуть в ЛокалТред.
     public static AppiumController getController() {
-        if(instance==null) {
+        if (instance == null) {
             instance = new AppiumController();
         }
         return instance;
@@ -70,7 +70,7 @@ public final class AppiumController {
      *
      * @return AndroidDriver
      */
-     AndroidDriver<MobileElement> getAndroidDriver() {
+    AndroidDriver<MobileElement> getAndroidDriver() {
         return androidDriver;
     }
 
@@ -87,8 +87,14 @@ public final class AppiumController {
      * Тушим все драйверы.
      */
     public void stop() {
-        if (androidDriver != null) androidDriver.quit();
-        if (iOSDriver != null) iOSDriver.quit();
+        if (androidDriver != null) {
+            androidDriver.quit();
+            System.out.println("Android driver has shutdown.");
+        }
+        if (iOSDriver != null) {
+            System.out.println("iOS driver has shutdown.");
+            iOSDriver.quit();
+        }
     }
 
 }

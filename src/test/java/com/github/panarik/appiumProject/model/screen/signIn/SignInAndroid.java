@@ -10,7 +10,6 @@ public class SignInAndroid extends AndroidController implements SignIn {
 
     private final MobileItem ITEM = new MobileItem("Поле", "XPATH", "//Button");
 
-    @Override
     public void checkScreen() {
         getElement(ITEM);
     }
