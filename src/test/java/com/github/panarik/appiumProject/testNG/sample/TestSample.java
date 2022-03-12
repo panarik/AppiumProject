@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class TestOne {
+public class TestSample {
 
     @DataProvider (name = "db")
         public static Object[][] dbData() {
@@ -15,6 +15,7 @@ public class TestOne {
         };
     }
 
+    //Тест с параметром из файлика testNG.
     @Parameters({"db"})
     @Test(groups = {"smoke", "regression"})
     public void test1(String db) {
@@ -22,6 +23,7 @@ public class TestOne {
         Assert.assertTrue(true);
     }
 
+    //Тест с параметром из объекта.
     @Test(groups = {"regression"}, dataProvider = "db")
     public void test11(String e1, int e2) {
         System.out.println("Test11 with data: "+e1+" "+e2);

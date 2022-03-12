@@ -21,7 +21,9 @@
 
         <!-- run tests from class files -->
         <classes>
-            <class name="com.github.panarik.appiumProject.testNG.sample.TestOne"/>
+            <class name="com.github.panarik.appiumProject.testNG.sample.TestSample"/>
+            <class name="com.github.panarik.appiumProject.testNG.sample.TestPriority"/>
+            <class name="com.github.panarik.appiumProject.testNG.sample.TestName"/>
         </classes>
     </test>
 </suite>
