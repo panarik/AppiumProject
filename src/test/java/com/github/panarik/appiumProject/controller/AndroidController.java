@@ -1,24 +1,25 @@
 package com.github.panarik.appiumProject.controller;
 
-import com.github.panarik.appiumProject.tests.base.BaseTestClass;
 import com.github.panarik.appiumProject.model.base.MobileItem;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NoSuchElementException;
 
+import static com.github.panarik.appiumProject.controller.AppiumController.getController;
+
 /**
  * Класс, в котором собраны все методы для запуска теста на Android
  */
-public class AndroidController extends BaseTestClass {
+public class AndroidController extends BaseController {
 
     AndroidDriver<MobileElement> androidDriver;
 
     public AndroidController() {
-        this.androidDriver = controller.getAndroidDriver();
+        this.androidDriver = getController().getAndroidDriver();
     }
 
     public MobileElement getElement(MobileItem mobileItem) {
-        return androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocator());
+        return androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody());
     }
 
     /**
@@ -28,7 +29,7 @@ public class AndroidController extends BaseTestClass {
      */
     protected void click(MobileItem mobileItem) {
         try {
-            androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocator()).click();
+            androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody()).click();
         } catch (NoSuchElementException e) {
             failAfterWaiting(mobileItem);
         }
@@ -44,7 +45,7 @@ public class AndroidController extends BaseTestClass {
     protected void waitForElementSleep(MobileItem item, int seconds) {
         for (int s = 0; s < seconds + 1; s++) {
             try {
-                androidDriver.findElement(item.getLocatorType(), item.getLocator());
+                androidDriver.findElement(item.getLocatorType(), item.getLocatorBody());
             } catch (NoSuchElementException e) {
                 System.out.println("waiting " + s + " seconds for: " + item.getName());
                 try {

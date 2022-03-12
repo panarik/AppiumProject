@@ -15,12 +15,28 @@ import java.util.concurrent.TimeUnit;
  * Класс, с единым инстансом для использования в тестах.
  * При каждом конкретном запуске тестов, класс определяет подключенное устройство и создаёт конкретный инстанс для него.
  */
-public class AppiumController {
+public final class AppiumController {
+
+    static AppiumController instance;
 
     // Создаём драйвера.
     private AndroidDriver<MobileElement> androidDriver;
     private IOSDriver<MobileElement> iOSDriver;
 
+    private AppiumController() {
+    }
+
+    // Вызывается единственный объект
+    // ToDo: подумать как будет работать с многопоточкой. Обернуть в ЛокалТред.
+    public static AppiumController getController() {
+        if(instance==null) {
+            instance = new AppiumController();
+        }
+        return instance;
+    }
+
+    // Сетапим Android driver.
+    // Можно проводить несколько раз на единственном объекте.
     public void setupAndroid() {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
@@ -31,7 +47,6 @@ public class AppiumController {
         cap.setCapability(MobileCapabilityType.APP, "path/to/app.apk");
         cap.setCapability("unlockType", "pattern"); //тип разблокировки девайса
         cap.setCapability("unlockKey", "1234"); //ключ разблокировки
-
         try {
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
             androidDriver = new AndroidDriver<>(url, cap);
@@ -51,20 +66,20 @@ public class AppiumController {
     }
 
     /**
-     * Вызываем AndroidDriver из любого места проекта.
+     * Вызываем AndroidDriver из пакета контроллеров.
      *
      * @return AndroidDriver
      */
-    public AndroidDriver<MobileElement> getAndroidDriver() {
+     AndroidDriver<MobileElement> getAndroidDriver() {
         return androidDriver;
     }
 
     /**
-     * Вызываем IOSDriver из любого места проекта.
+     * Вызываем IOSDriver из пакета контроллеров.
      *
      * @return IOSDriver
      */
-    public IOSDriver<MobileElement> getIOSDriver() {
+    IOSDriver<MobileElement> getIOSDriver() {
         return iOSDriver;
     }
 

@@ -7,9 +7,15 @@ package com.github.panarik.appiumProject.model.base;
  */
 public class MobileItem {
 
-    private String name;
-    private String locatorType; // Тип локатора. Из типа локатора и текста локатора составляется само тело локатора, которое и запускается.
-    private String locator;
+    private final String name;
+    private final String locatorType; // Тип локатора. Из типа локатора и текста локатора составляется само тело локатора, которое и запускается.
+    private final String locatorBody; // Тело локатора.
+
+    public MobileItem(String name, String locatorType, String locatorBody) {
+        this.name = name;
+        this.locatorType = locatorType;
+        this.locatorBody = locatorBody;
+    }
 
     public String getName() {
         return name;
@@ -19,7 +25,9 @@ public class MobileItem {
         return locatorType;
     }
 
-    public String getLocator() {
-        return locator;
+    public String getLocatorBody() {
+        return locatorBody;
     }
+
+
 }
