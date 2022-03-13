@@ -2,24 +2,18 @@ package com.github.panarik.appiumProject.controller;
 
 import com.github.panarik.appiumProject.model.base.MobileItem;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NoSuchElementException;
+import org.testng.Assert;
 
-import static com.github.panarik.appiumProject.controller.AppiumController.getController;
+import static com.github.panarik.appiumProject.controller.AppiumInstance.getDriver;
 
 /**
- * Класс, в котором собраны все методы для запуска теста на Android
+ * Класс, в котором собраны все методы для запуска теста на Android i iOS.
  */
-public class AndroidController extends BaseController {
-
-    AndroidDriver<MobileElement> androidDriver;
-
-    public AndroidController() {
-        this.androidDriver = getController().getAndroidDriver();
-    }
-
+public class Controller {
+    
     public MobileElement getElement(MobileItem mobileItem) {
-        return androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody());
+        return (MobileElement) getDriver().driver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody());
     }
 
     /**
@@ -29,7 +23,7 @@ public class AndroidController extends BaseController {
      */
     protected void click(MobileItem mobileItem) {
         try {
-            androidDriver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody()).click();
+            getDriver().driver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody()).click();
         } catch (NoSuchElementException e) {
             failAfterWaiting(mobileItem);
         }
@@ -45,7 +39,7 @@ public class AndroidController extends BaseController {
     protected void waitForElementSleep(MobileItem item, int seconds) {
         for (int s = 0; s < seconds + 1; s++) {
             try {
-                androidDriver.findElement(item.getLocatorType(), item.getLocatorBody());
+                getDriver().driver.findElement(item.getLocatorType(), item.getLocatorBody());
             } catch (NoSuchElementException e) {
                 System.out.println("waiting " + s + " seconds for: " + item.getName());
                 try {
@@ -55,6 +49,10 @@ public class AndroidController extends BaseController {
                 }
             }
         }
+    }
+
+    protected void failAfterWaiting(MobileItem mobileitem) {
+        Assert.fail("Элемент " + mobileitem.getName() + " не найден.");
     }
 
 }

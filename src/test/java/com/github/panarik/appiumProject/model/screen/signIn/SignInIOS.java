@@ -1,6 +1,5 @@
 package com.github.panarik.appiumProject.model.screen.signIn;
 
-import com.github.panarik.appiumProject.controller.IOSController;
 import com.github.panarik.appiumProject.model.base.MobileItem;
 
 /**
