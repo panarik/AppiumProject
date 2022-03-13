@@ -1,14 +1,16 @@
 package com.github.panarik.appiumProject.model.screen.signIn;
 
+import com.github.panarik.appiumProject.controller.Controller;
+import com.github.panarik.appiumProject.model.base.MobileItem;
+
 /**
- * Интерфейс, описывающий общие методы для экрана вне зависимости к какой платформе экран относится.
- * Особенности экрана для каждой конкретной платформы реализованы в отдельном классе для этой платформы.
+ * Класс в котором реализована работа экрана 'SignIn' для Android.
  */
-public interface SignIn {
+public class SignIn extends Controller {
 
-    /**
-     * Пользователь находится на данном экране
-     */
-    void checkScreen();
+    private final MobileItem ITEM = new MobileItem("Поле", "XPATH", "//Button");
 
+    public void checkScreen() {
+        getElement(ITEM);
+    }
 }

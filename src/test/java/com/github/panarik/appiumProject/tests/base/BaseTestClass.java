@@ -1,6 +1,7 @@
 package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.controller.AppiumInstance;
+import com.github.panarik.appiumProject.model.screen.signIn.SignIn;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -10,6 +11,9 @@ import org.testng.annotations.BeforeTest;
 public class BaseTestClass {
 
     AppiumInstance instance;
+
+    //Setup pages
+    protected SignIn signIn = new SignIn();
 
     @BeforeTest
     public void start() {
