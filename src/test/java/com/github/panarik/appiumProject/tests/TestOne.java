@@ -7,6 +7,10 @@ public class TestOne extends CommonActions {
 
     @Test
     public void TestLogIn() {
-        signIn.checkScreen();
+        signIn
+                .checkScreen()
+                .clickNext();
+        menu
+                .checkScreen();
     }
 }
