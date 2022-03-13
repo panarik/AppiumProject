@@ -1,6 +1,7 @@
 package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.controller.AppiumInstance;
+import com.github.panarik.appiumProject.model.screen.signIn.Menu;
 import com.github.panarik.appiumProject.model.screen.signIn.SignIn;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -14,6 +15,7 @@ public class BaseTestClass {
 
     //Setup pages
     protected SignIn signIn = new SignIn();
+    protected Menu menu = new Menu();
 
     @BeforeTest
     public void start() {
