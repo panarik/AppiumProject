@@ -10,7 +10,5 @@ public class TestOne extends CommonActions {
         signIn
                 .checkScreen()
                 .clickNext();
-        menu
-                .checkScreen();
     }
 }
