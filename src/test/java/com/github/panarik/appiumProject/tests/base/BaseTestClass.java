@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 
 public class BaseTestClass {
 
-    private AppiumInstance instance;
+    private AppiumInstance instance; // one instance
 
     //Setup pages
     // Add only common pages. If page is a part of scenario do not create it.

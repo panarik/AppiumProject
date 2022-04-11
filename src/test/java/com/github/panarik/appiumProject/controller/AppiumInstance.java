@@ -2,7 +2,10 @@ package com.github.panarik.appiumProject.controller;
 
 import com.github.panarik.appiumProject.controller.driver.Driver;
 import com.github.panarik.appiumProject.model.base.Configs;
-import io.appium.java_client.android.AndroidDriver;
+import com.github.panarik.appiumProject.tools.JsonParser;
+import com.github.panarik.appiumProject.tools.data.TestData;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -16,20 +19,21 @@ public class AppiumInstance {
     static ThreadLocal<Driver> controller = new ThreadLocal<>(); // Common driver.
 
     public void setup(String OS) {
+        TestData config = new JsonParser().getData(); // get device settings
         switch (OS) {
             case ("ANDROID"): {
                 DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
-                cap.setCapability(MobileCapabilityType.VERSION, "10");
-//                cap.setCapability(MobileCapabilityType.DEVICE_NAME, "DeviceName");
-                cap.setCapability(MobileCapabilityType.UDID, "RZ8R92BWY4A");
+                cap.setCapability(MobileCapabilityType.VERSION, config.getAndroid().get("version"));
+                cap.setCapability(MobileCapabilityType.UDID, config.getAndroid().get("udid"));
                 cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-                cap.setCapability(MobileCapabilityType.APP, "C:\\Users\\user\\IdeaProjects\\AppiumProject\\src\\test\\resources\\app-SmartFeatures-debug.apk");
-                cap.setCapability("unlockType", "pin");
-                cap.setCapability("unlockKey", "1111");
+                cap.setCapability("appActivity", config.getAndroid().get("appActivity"));
+                cap.setCapability("appPackage", config.getAndroid().get("appPackage"));
+                cap.setCapability("unlockType", config.getAndroid().get("unlockType"));
+                cap.setCapability("unlockKey", config.getAndroid().get("unlockKey"));
                 try {
                     URL url = new URL("http://127.0.0.1:4723/wd/hub");
-                    controller.set(new Driver(new AndroidDriver<>(url, cap)));
+                    controller.set(new Driver(new AppiumDriver<MobileElement>(url, cap)));
                 } catch (
                         MalformedURLException e) {
                     e.printStackTrace();
