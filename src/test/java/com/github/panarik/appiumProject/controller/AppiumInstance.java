@@ -39,7 +39,6 @@ public class AppiumInstance {
                     e.printStackTrace();
                 }
                 controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
-
             }
 
             case ("IOS"): {

@@ -1,6 +1,7 @@
 .idea
 .gradle
 /build
+allure-results
 *.apk
 /src/test/resources/device
 /src/main/resources/device

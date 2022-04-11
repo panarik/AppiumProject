@@ -1,18 +1,28 @@
 package com.github.panarik.appiumProject.tests;
 
 import com.github.panarik.appiumProject.tests.base.CommonActions;
-import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class TestOne extends CommonActions {
 
-    @Test
-    public void testOne() {
-        System.out.println("Test");
-        Assert.assertTrue(true);
+    @BeforeClass
+    public void setGeoToLondon() {
+        //Pre Step: set location.
+        map.setLondon();
+    }
 
-//        signIn
-//                .checkScreen()
-//                .clickNext();
+    @Test
+    public void SearchSomePlace() {
+        // Step 1: Go to search page.
+        map.goToSearch();
+
+        // Step 2: Search "Garden Museum".
+        search
+                .search("Garden Museum")
+                .pickFirstSuggestion();
+
+        //Step 3: Check "Garden Museum" from the list of suggestions on the map.
+        map.verifySuggestion("Garden Museum");
     }
 }
