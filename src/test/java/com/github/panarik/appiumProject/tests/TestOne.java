@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class TestOne extends CommonActions {
 
     @Test
-    public void TestOne() {
+    public void testOne() {
         System.out.println("Test");
         Assert.assertTrue(true);
 
