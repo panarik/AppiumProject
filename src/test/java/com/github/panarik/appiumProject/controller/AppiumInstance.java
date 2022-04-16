@@ -6,6 +6,8 @@ import com.github.panarik.appiumProject.tools.JsonParser;
 import com.github.panarik.appiumProject.tools.data.TestData;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -16,13 +18,13 @@ import java.util.concurrent.TimeUnit;
 
 public class AppiumInstance {
 
-    static ThreadLocal<Driver> controller = new ThreadLocal<>(); // Common driver.
+    static ThreadLocal<Driver<AppiumDriver<MobileElement>>> controller = new ThreadLocal<>(); // Common driver.
 
     public void setup(String OS) {
         TestData config = new JsonParser().getData(); // get device settings
+        DesiredCapabilities cap = new DesiredCapabilities();
         switch (OS) {
             case ("ANDROID"): {
-                DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
                 cap.setCapability(MobileCapabilityType.VERSION, config.getAndroid().get("version"));
                 cap.setCapability(MobileCapabilityType.UDID, config.getAndroid().get("udid"));
@@ -33,7 +35,7 @@ public class AppiumInstance {
                 cap.setCapability("unlockKey", config.getAndroid().get("unlockKey"));
                 try {
                     URL url = new URL("http://127.0.0.1:4723/wd/hub");
-                    controller.set(new Driver(new AppiumDriver<MobileElement>(url, cap)));
+                    controller.set(new Driver(new AndroidDriver<MobileElement>(url, cap)));
                 } catch (
                         MalformedURLException e) {
                     e.printStackTrace();
@@ -42,7 +44,21 @@ public class AppiumInstance {
             }
 
             case ("IOS"): {
-                //ToDo: Setup iOS.
+                cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+                cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, config.getIOS().get("platformVersion"));
+                cap.setCapability(MobileCapabilityType.DEVICE_NAME, config.getIOS().get("deviceName"));
+                cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
+                cap.setCapability(MobileCapabilityType.BROWSER_NAME, "safari");
+                cap.setCapability(MobileCapabilityType.UDID, config.getIOS().get("udid"));
+//                cap.setCapability(MobileCapabilityType.APP, "");
+                try {
+                    URL url = new URL("http://127.0.0.1:4723/wd/hub");
+                    controller.set(new Driver(new IOSDriver<MobileElement>(url, cap)));
+                } catch (
+                        MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
             }
         }
     }

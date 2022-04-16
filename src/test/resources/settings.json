@@ -12,8 +12,9 @@
     },
     {
       "platform_name": "iOS",
-      "version": "10",
-      "udid": "<device_udid>",
+      "platformVersion": "15.4",
+      "deviceName": "iPhone 11 Simulator",
+      "udid": "AA285218-0314-4732-9EB5-434F68337AAA",
       "app": "<path_to_apk>"
     }
   ]

@@ -19,7 +19,7 @@ public class BaseTestClass {
 
     @BeforeTest
     public void start() {
-        String osName = "ANDROID";
+        String osName = "IOS";
         log.info(osName + " driver: setup.");
         instance = new AppiumInstance();
         instance.setup(osName);
