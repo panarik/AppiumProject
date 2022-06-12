@@ -1,6 +1,5 @@
 package com.github.panarik.appiumProject.model.base;
 
-
 public class MobileItem {
 
     private final String name;
@@ -24,6 +23,5 @@ public class MobileItem {
     public String getLocatorBody() {
         return locatorBody;
     }
-
 
 }

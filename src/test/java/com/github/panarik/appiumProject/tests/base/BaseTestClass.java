@@ -1,8 +1,8 @@
 package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.controller.AppiumInstance;
-import com.github.panarik.appiumProject.model.screen.Map;
-import com.github.panarik.appiumProject.model.screen.Search;
+import com.github.panarik.appiumProject.model.screen.SignIn;
+import com.github.panarik.appiumProject.model.screen.Main;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -14,12 +14,12 @@ public class BaseTestClass {
 
     //Setup pages
     // Add only common pages. If page is a part of scenario do not create it.
-    protected Map map = new Map();
-    protected Search search = new Search();
+    protected SignIn map = new SignIn();
+    protected Main search = new Main();
 
     @BeforeTest
     public void start() {
-        String osName = "IOS";
+        String osName = "ANDROID";
         log.info(osName + " driver: setup.");
         instance = new AppiumInstance();
         instance.setup(osName);

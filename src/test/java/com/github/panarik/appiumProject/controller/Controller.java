@@ -19,11 +19,12 @@ public class Controller {
     public static final Logger log = LogManager.getLogger(); // logger
 
     protected MobileElement getElement(MobileItem mobileItem) {
+
         return (MobileElement) controller.get().driver.findElement(By.xpath(mobileItem.getLocatorBody()));
     }
 
     /**
-     * Click on {@link MobileItem}
+     * Click on element {@link MobileItem}
      *
      * @param mobileItem
      */
@@ -36,7 +37,7 @@ public class Controller {
     }
 
     protected void failAfterWaiting(MobileItem mobileitem) {
-        Assert.fail("Элемент " + mobileitem.getName() + " не найден.");
+        Assert.fail("Element " + mobileitem.getName() + " hasn't found.");
     }
 
     /**

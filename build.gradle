@@ -1,5 +1,11 @@
 plugins {
-    id 'java'
+    id("java-library")
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 compileJava.options.encoding = 'UTF-8'
@@ -35,5 +41,6 @@ task testAppium(type: Test) {
         useDefaultListeners = true
         suites 'src/test/resources/testNGAppium.xml'
     }
+
 }
 

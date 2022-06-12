@@ -1,0 +1,20 @@
+{
+  "platforms": [
+    {
+      "platform_name": "ANDROID",
+      "version": "10",
+      "udid": "udid",
+      "app": "<path_to_apk>",
+      "appPackage": "appPackage",
+      "appActivity": "appActivity",
+      "unlockType": "pin",
+      "unlockKey": "some digits"
+    },
+    {
+      "platform_name": "iOS",
+      "platformVersion": "platformVersion",
+      "deviceName": "deviceName",
+      "udid": "udid"
+    }
+  ]
+}
