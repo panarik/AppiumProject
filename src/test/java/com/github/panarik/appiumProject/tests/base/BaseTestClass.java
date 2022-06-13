@@ -1,6 +1,7 @@
 package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.controller.AppiumInstance;
+import com.github.panarik.appiumProject.model.base.Configs;
 import com.github.panarik.appiumProject.model.screen.SignIn;
 import com.github.panarik.appiumProject.model.screen.Main;
 import org.testng.annotations.AfterTest;
@@ -19,7 +20,7 @@ public class BaseTestClass {
 
     @BeforeTest
     public void start() {
-        String osName = "IOS";
+        String osName = Configs.OS;
         log.info(osName + " driver: setup.");
         instance = new AppiumInstance();
         instance.setup(osName);

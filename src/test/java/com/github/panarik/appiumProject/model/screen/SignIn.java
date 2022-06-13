@@ -12,8 +12,7 @@ public class SignIn extends Controller {
 
     private final MobileItem SIGN_IN_WITHOUT_AUTH_BUTTON = new MobileItem(
             "Button 'Sign in without auth'",
-            Locator.XPATH,
-            "//android.widget.Button[@text='ПРОДОЛЖИТЬ БЕЗ РЕГИСТРАЦИИ']");
+            new Locator("//android.widget.Button[@text='ПРОДОЛЖИТЬ БЕЗ РЕГИСТРАЦИИ']", "//XCUIElementTypeStaticText[@name='Continue']"));
 
     /**
      * Verify current screen is open and loaded.

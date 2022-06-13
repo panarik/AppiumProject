@@ -3,13 +3,11 @@ package com.github.panarik.appiumProject.model.base;
 public class MobileItem {
 
     private final String name;
-    private final String locatorType;
-    private final String locatorBody;
+    private final Locator locator;
 
-    public MobileItem(String name, String locatorType, String locatorBody) {
+    public MobileItem(String name, Locator locator) {
         this.name = name;
-        this.locatorType = locatorType;
-        this.locatorBody = locatorBody;
+        this.locator = locator;
     }
 
     public String getName() {
@@ -17,11 +15,11 @@ public class MobileItem {
     }
 
     public String getLocatorType() {
-        return locatorType;
+        return this.locator.getType();
     }
 
     public String getLocatorBody() {
-        return locatorBody;
+        return this.locator.getBody();
     }
 
 }

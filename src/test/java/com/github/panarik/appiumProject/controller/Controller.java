@@ -19,8 +19,7 @@ public class Controller {
     public static final Logger log = LogManager.getLogger(); // logger
 
     protected MobileElement getElement(MobileItem mobileItem) {
-
-        return controller.get().driver.findElement(By.xpath(mobileItem.getLocatorBody()));
+        return controller.get().driver.findElement(mobileItem.getLocatorType(), mobileItem.getLocatorBody());
     }
 
     /**

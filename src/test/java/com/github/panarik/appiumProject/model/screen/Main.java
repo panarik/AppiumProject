@@ -12,8 +12,7 @@ public class Main extends Controller {
 
     private final MobileItem ROOT = new MobileItem(
             "Recycle view with root content",
-            Locator.ID,
-            "com.github.panarik.smartFeatures:id/recyclerView");
+            new Locator("com.github.panarik.smartFeatures:id/recyclerView", "//XCUIElementTypeNavigationBar[@name='Main menu']"));
 
     /**
      * Verify current screen is open and loaded.
