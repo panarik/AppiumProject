@@ -48,10 +48,10 @@ public class AppiumInstance {
                 cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
                 cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, config.getIOS().get("platformVersion"));
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, config.getIOS().get("deviceName"));
-                cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-                cap.setCapability(MobileCapabilityType.BROWSER_NAME, "safari");
+                    cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
+//                cap.setCapability(MobileCapabilityType.BROWSER_NAME, "safari"); // For opening browser
                 cap.setCapability(MobileCapabilityType.UDID, config.getIOS().get("udid"));
-//                cap.setCapability(MobileCapabilityType.APP, "");
+                cap.setCapability(MobileCapabilityType.APP, config.getIOS().get("app"));
                 try {
                     URL url = new URL("http://127.0.0.1:4723/wd/hub");
                     controller.set(new Driver(new IOSDriver<MobileElement>(url, cap)));
@@ -68,7 +68,6 @@ public class AppiumInstance {
     public void stop() {
         if (controller.get().driver != null) {
             controller.get().driver.quit();
-            System.out.println("Driver has shutdown.");
         }
     }
 

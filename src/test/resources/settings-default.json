@@ -12,9 +12,10 @@
     },
     {
       "platform_name": "iOS",
-      "platformVersion": "platformVersion",
-      "deviceName": "deviceName",
-      "udid": "udid"
+      "platformVersion": "iOS_version",
+      "deviceName": "device_name",
+      "udid": "device_udid",
+      "app": "path_to_.app_file"
     }
   ]
 }

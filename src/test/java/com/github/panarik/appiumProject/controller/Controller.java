@@ -20,7 +20,7 @@ public class Controller {
 
     protected MobileElement getElement(MobileItem mobileItem) {
 
-        return (MobileElement) controller.get().driver.findElement(By.xpath(mobileItem.getLocatorBody()));
+        return controller.get().driver.findElement(By.xpath(mobileItem.getLocatorBody()));
     }
 
     /**

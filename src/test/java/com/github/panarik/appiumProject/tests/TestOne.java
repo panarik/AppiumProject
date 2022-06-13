@@ -13,7 +13,7 @@ public class TestOne extends CommonActions {
 
     @Test
     public void test1() {
-        goToMainMenu();
+        openMainMenu();
     }
 
     @Test

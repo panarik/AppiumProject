@@ -14,12 +14,12 @@ public class BaseTestClass {
 
     //Setup pages
     // Add only common pages. If page is a part of scenario do not create it.
-    protected SignIn map = new SignIn();
-    protected Main search = new Main();
+    protected SignIn signIn = new SignIn();
+    protected Main main = new Main();
 
     @BeforeTest
     public void start() {
-        String osName = "ANDROID";
+        String osName = "IOS";
         log.info(osName + " driver: setup.");
         instance = new AppiumInstance();
         instance.setup(osName);
