@@ -10,8 +10,7 @@ import io.qameta.allure.Step;
  */
 public class Main extends Controller {
 
-    private final MobileItem ROOT = new MobileItem(
-            "Recycle view with root content",
+    private final MobileItem ROOT = new MobileItem("Recycle view with root content",
             new Locator("com.github.panarik.smartFeatures:id/recyclerView", "//XCUIElementTypeNavigationBar[@name='Main menu']"));
 
     /**

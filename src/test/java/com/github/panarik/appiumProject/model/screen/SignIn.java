@@ -10,8 +10,7 @@ import io.qameta.allure.Step;
  */
 public class SignIn extends Controller {
 
-    private final MobileItem SIGN_IN_WITHOUT_AUTH_BUTTON = new MobileItem(
-            "Button 'Sign in without auth'",
+    private final MobileItem SIGN_IN_WITHOUT_AUTH_BUTTON = new MobileItem("Button 'Sign in without auth'",
             new Locator("//android.widget.Button[@text='ПРОДОЛЖИТЬ БЕЗ РЕГИСТРАЦИИ']", "//XCUIElementTypeStaticText[@name='Continue']"));
 
     /**

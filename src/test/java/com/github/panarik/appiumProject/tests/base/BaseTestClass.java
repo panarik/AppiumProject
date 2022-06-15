@@ -30,7 +30,6 @@ public class BaseTestClass {
     @AfterTest
     public void shutdown() {
         instance.stop();
-        log.info("Driver has shutdown.");
     }
 
 }

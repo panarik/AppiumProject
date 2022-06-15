@@ -4,12 +4,14 @@ import com.github.panarik.appiumProject.controller.driver.Driver;
 import com.github.panarik.appiumProject.model.base.Configs;
 import com.github.panarik.appiumProject.tools.JsonParser;
 import com.github.panarik.appiumProject.tools.data.TestData;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import static com.github.panarik.appiumProject.controller.Controller.controller;
+import static com.github.panarik.appiumProject.controller.Controller.log;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,8 +19,6 @@ import java.util.concurrent.TimeUnit;
 
 
 public class AppiumInstance {
-
-    static ThreadLocal<Driver<AppiumDriver<MobileElement>>> controller = new ThreadLocal<>(); // Common driver.
 
     public void setup(String OS) {
         TestData config = new JsonParser().getData(); // get device settings
@@ -40,7 +40,6 @@ public class AppiumInstance {
                         MalformedURLException e) {
                     e.printStackTrace();
                 }
-                controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
                 break;
             }
 
@@ -48,8 +47,7 @@ public class AppiumInstance {
                 cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
                 cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, config.getIOS().get("platformVersion"));
                 cap.setCapability(MobileCapabilityType.DEVICE_NAME, config.getIOS().get("deviceName"));
-                    cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-//                cap.setCapability(MobileCapabilityType.BROWSER_NAME, "safari"); // For opening browser
+                cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
                 cap.setCapability(MobileCapabilityType.UDID, config.getIOS().get("udid"));
                 cap.setCapability(MobileCapabilityType.APP, config.getIOS().get("app"));
                 try {
@@ -59,16 +57,20 @@ public class AppiumInstance {
                         MalformedURLException e) {
                     e.printStackTrace();
                 }
-                controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
                 break;
             }
         }
+
+        // Setup implicit waiter.
+        controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
     }
 
     public void stop() {
         if (controller.get().driver != null) {
             controller.get().driver.quit();
+            log.trace("Driver has shutdown.");
         }
+        log.trace("Driver already shutdown.");
     }
 
 }
