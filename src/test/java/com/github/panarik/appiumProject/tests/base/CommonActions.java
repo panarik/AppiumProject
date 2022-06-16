@@ -5,7 +5,6 @@ public class CommonActions extends BaseTestClass {
     protected void openMainMenu() {
         signIn.onDisplay();
         signIn.openMainScreen();
-
     }
 
 }

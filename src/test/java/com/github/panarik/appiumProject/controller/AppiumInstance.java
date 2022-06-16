@@ -69,8 +69,7 @@ public class AppiumInstance {
         if (controller.get().driver != null) {
             controller.get().driver.quit();
             log.trace("Driver has shutdown.");
-        }
-        log.trace("Driver already shutdown.");
+        } else log.trace("Driver already shutdown.");
     }
 
 }
