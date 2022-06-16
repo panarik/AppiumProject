@@ -2,8 +2,8 @@ package com.github.panarik.appiumProject.controller;
 
 import com.github.panarik.appiumProject.controller.driver.Driver;
 import com.github.panarik.appiumProject.model.base.Configs;
-import com.github.panarik.appiumProject.tools.JsonParser;
-import com.github.panarik.appiumProject.tools.data.TestData;
+import com.github.panarik.appiumProject.model.base.tools.JsonParser;
+import com.github.panarik.appiumProject.model.base.tools.data.TestData;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;

@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.tools.data;
+package com.github.panarik.appiumProject.model.base.tools.data;
 
 import java.util.List;
 import java.util.Map;

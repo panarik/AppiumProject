@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.tools;
+package com.github.panarik.appiumProject.model.base.tools;
 
-import com.github.panarik.appiumProject.tools.data.TestData;
+import com.github.panarik.appiumProject.model.base.tools.data.TestData;
 import com.google.gson.Gson;
 
 import java.io.IOException;
