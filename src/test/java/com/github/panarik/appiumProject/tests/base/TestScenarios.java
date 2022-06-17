@@ -1,10 +1,11 @@
 package com.github.panarik.appiumProject.tests.base;
 
-public class CommonActions extends BaseTestClass {
+public class TestScenarios extends BaseTestClass {
 
     protected void openMainMenu() {
         signIn.onDisplay();
         signIn.openMainScreen();
+        main.onDisplay();
     }
 
 }

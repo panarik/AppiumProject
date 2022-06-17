@@ -1,11 +1,12 @@
-package com.github.panarik.appiumProject.model.screen;
+package com.github.panarik.appiumProject.model.screen.main;
 
 import com.github.panarik.appiumProject.model.base.Locator;
 import com.github.panarik.appiumProject.model.base.MobileItem;
+import com.github.panarik.appiumProject.model.screen.BaseScreen;
 import io.qameta.allure.Step;
 
 /**
- * Main screen.
+ * Main screen for both platforms.
  */
 public class Main extends BaseScreen {
 
@@ -17,9 +18,9 @@ public class Main extends BaseScreen {
     /**
      * Verify current screen is open and loaded.
      */
-    @Step("Opening the Main screen.")
+    @Step("Checking the '" + SCREEN_NAME + "' screen.")
     public void onDisplay() {
-        log.info("Opening the Main screen.");
+        log.info("Checking the '" + SCREEN_NAME + "' screen.");
         verifyItem(ROOT, this);
     }
 

@@ -2,10 +2,11 @@ package com.github.panarik.appiumProject.model.screen;
 
 import com.github.panarik.appiumProject.model.base.Locator;
 import com.github.panarik.appiumProject.model.base.MobileItem;
+import com.github.panarik.appiumProject.model.screen.main.Main;
 import io.qameta.allure.Step;
 
 /**
- * SignIn screen.
+ * SignIn screen for both platforms.
  */
 public class SignIn extends BaseScreen {
 
@@ -17,14 +18,14 @@ public class SignIn extends BaseScreen {
     /**
      * Verify current screen is open and loaded.
      */
-    @Step(SCREEN_NAME + " screen has open.")
+    @Step("Checking the '" + SCREEN_NAME + "' screen.")
     public void onDisplay() {
-        log.info(SCREEN_NAME + " screen has open.");
+        log.info("Checking the '" + SCREEN_NAME + "' screen.");
         verifyItem(SIGN_IN_WITHOUT_AUTH_BUTTON, this);
     }
 
     /**
-     * Opening
+     * Opening Main screen.
      */
     @Step("Opening Main screen.")
     public void openMainScreen() {

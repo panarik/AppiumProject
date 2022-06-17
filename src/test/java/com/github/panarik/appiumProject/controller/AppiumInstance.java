@@ -60,6 +60,7 @@ public class AppiumInstance {
                 break;
             }
         }
+        log.info("Created " + OS + " session.");
 
         // Setup implicit waiter.
         controller.get().driver.manage().timeouts().implicitlyWait(Configs.GLOBAL_WAITING, TimeUnit.SECONDS);
