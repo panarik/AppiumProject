@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.html5.Location;
 import org.testng.Assert;
-import org.testng.asserts.Assertion;
 
 import java.lang.reflect.Field;
 

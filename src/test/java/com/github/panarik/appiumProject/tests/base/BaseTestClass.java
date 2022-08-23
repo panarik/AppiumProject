@@ -14,9 +14,7 @@ import static com.github.panarik.appiumProject.controller.Controller.log;
 
 public class BaseTestClass {
 
-    private AppiumInstance instance; // one instance
-
-    //Setup screens
+    // Set up screens.
     // Add common screens for both platforms.
     protected final SignIn signIn = new SignIn();
     protected final Main main = new Main();
@@ -24,16 +22,14 @@ public class BaseTestClass {
     // Add different screens for each platform.
     protected MobileShopping mobileShopping;
 
+    private final AppiumInstance instance = new AppiumInstance();
+
     public BaseTestClass() {
 
         // Initialize screens for each platform.
         switch (Configs.OS) {
-            case ("ANDROID") -> {
-                mobileShopping = new MobileShoppingAndroid();
-            }
-            case ("IOS") -> {
-                mobileShopping = new MobileShoppingIOS();
-            }
+            case ("ANDROID") -> mobileShopping = new MobileShoppingAndroid();
+            case ("IOS") -> mobileShopping = new MobileShoppingIOS();
         }
     }
 
@@ -41,7 +37,6 @@ public class BaseTestClass {
     public void start() {
         String osName = Configs.OS;
         log.info(osName + " driver: setup.");
-        instance = new AppiumInstance();
         instance.setup(osName);
         log.info(osName + " driver: ready.");
     }
