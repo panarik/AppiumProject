@@ -1,5 +1,5 @@
 {
-  "platforms": [
+  "devices": [
     {
       "platform_name": "ANDROID",
       "version": "10",

@@ -14,15 +14,14 @@ public class TestOne extends TestScenarios {
 
     @Test
     public void openMenu() {
-
-        // Step 1: Open Main menu.
+        // Step 1: Open MainScreen menu.
         openMainMenu();
     }
 
     @Test
     public void verifyShoppingScreen() {
 
-        // Step 1: Open 'Main menu'.
+        // Step 1: Open 'MainScreen menu'.
         openMainMenu();
 
         // Step 2: Open 'Mobile shopping'.

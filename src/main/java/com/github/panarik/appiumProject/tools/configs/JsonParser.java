@@ -1,6 +1,6 @@
-package com.github.panarik.appiumProject.model.base.tools;
+package com.github.panarik.appiumProject.tools.configs;
 
-import com.github.panarik.appiumProject.model.base.tools.data.TestData;
+import com.github.panarik.appiumProject.tools.configs.data.TestData;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class JsonParser {
     public TestData getData() {
         Reader reader = null;
         try {
-            reader = Files.newBufferedReader(Paths.get("src/test/resources/settings.json"));
+            reader = Files.newBufferedReader(Paths.get("src/test/resources/settings-device.json"));
         } catch (IOException e) {
             e.printStackTrace();
         }

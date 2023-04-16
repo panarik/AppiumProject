@@ -1,4 +1,6 @@
-package com.github.panarik.appiumProject.model.base;
+package com.github.panarik.appiumProject.model.elements;
+
+import com.github.panarik.appiumProject.model.elements.model.Locator;
 
 public class MobileItem {
 
@@ -12,14 +14,6 @@ public class MobileItem {
 
     public String getName() {
         return name;
-    }
-
-    public String getLocatorType() {
-        return this.locator.getType();
-    }
-
-    public String getLocatorBody() {
-        return this.locator.getBody();
     }
 
 }

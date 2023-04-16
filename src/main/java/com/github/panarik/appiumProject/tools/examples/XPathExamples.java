@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.model.base.tools.examples;
+package com.github.panarik.appiumProject.tools.examples;
 
 public class XPathExamples {
 
