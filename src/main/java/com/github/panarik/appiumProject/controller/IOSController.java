@@ -1,16 +1,24 @@
 package com.github.panarik.appiumProject.controller;
 
-import io.appium.java_client.ios.IOSDriver;
 
-public class IOSController extends WebController {
+import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.WebDriver;
+
+import static com.github.panarik.appiumProject.controller.AppiumBuilder.log;
+
+public class IOSController {
 
     private final IOSDriver driver;
 
     public IOSController() {
-        super(AppiumBuilder.DRIVER.get());
-        if (AppiumBuilder.DRIVER.get() instanceof IOSDriver) {
-            driver = (IOSDriver) AppiumBuilder.DRIVER.get();
+        WebDriver driver = AppiumBuilder.DRIVER.get();
+        if (driver instanceof IOSDriver) {
+            this.driver = (IOSDriver) driver;
             log.info("Android driver is ready.");
-        } else driver = null;
+        } else this.driver = null;
+    }
+
+    public void iosAction() {
+        log.info(driver.getBatteryInfo().getState().toString());
     }
 }

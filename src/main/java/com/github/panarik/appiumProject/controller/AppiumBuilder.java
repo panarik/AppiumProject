@@ -1,5 +1,6 @@
 package com.github.panarik.appiumProject.controller;
 
+import com.github.panarik.appiumProject.tools.Log;
 import com.github.panarik.appiumProject.tools.configs.JsonParser;
 import com.github.panarik.appiumProject.tools.configs.data.TestData;
 import io.appium.java_client.android.AndroidDriver;
@@ -12,12 +13,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-import static com.github.panarik.appiumProject.controller.WebController.log;
-
-
 public class AppiumBuilder {
 
     static ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>(); // Common driver.
+    public static final Log log = new Log();
 
     public void setup(String OS) {
         TestData config = new JsonParser().getData(); // get device settings
@@ -93,8 +92,8 @@ public class AppiumBuilder {
     public void stop() {
         if (DRIVER.get() != null) {
             DRIVER.get().quit();
-            log.trace("Driver has shutdown.");
-        } else log.trace("Driver already shutdown.");
+            log.info("Driver has shutdown.");
+        } else log.info("Driver already shutdown.");
     }
 
 }

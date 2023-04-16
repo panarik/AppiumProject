@@ -1,16 +1,18 @@
 package com.github.panarik.appiumProject.model.screens.base;
 
 import com.github.panarik.appiumProject.controller.WebController;
-import org.apache.logging.log4j.Logger;
+import com.github.panarik.appiumProject.tools.Log;
 
-/**
- * Abstract screen class.
- */
+
 public abstract class BaseScreen {
 
-    protected Logger log = WebController.log;
 
+    private final WebController controller;
+    protected Log log = new Log();
 
+    protected BaseScreen() {
+        this.controller = new WebController();
+    }
 
     /**
      * Necessary method for checking about current screen. It's on display now or not.

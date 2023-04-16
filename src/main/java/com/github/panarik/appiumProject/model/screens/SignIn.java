@@ -1,7 +1,5 @@
 package com.github.panarik.appiumProject.model.screens;
 
-import com.github.panarik.appiumProject.model.elements.model.Locator;
-import com.github.panarik.appiumProject.model.elements.MobileItem;
 import com.github.panarik.appiumProject.model.screens.base.BaseScreen;
 import com.github.panarik.appiumProject.model.screens.main.MainScreen;
 import io.qameta.allure.Step;

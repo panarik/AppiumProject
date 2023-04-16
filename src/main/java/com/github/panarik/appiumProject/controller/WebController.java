@@ -1,24 +1,27 @@
 package com.github.panarik.appiumProject.controller;
 
 import com.github.panarik.appiumProject.model.elements.MobileItem;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import static com.github.panarik.appiumProject.controller.AppiumBuilder.log;
 
 /**
  * Appium controller class contains all common methods for Android and iOS. Screens can't use Appium controller methods directly.
  */
-public abstract class WebController {
+public class WebController {
 
-    public static final Logger log = LogManager.getLogger(); // logger
     private final WebDriver driver;
 
-    protected WebController(WebDriver appiumDriver) {
-        driver = appiumDriver;
+    public WebController() {
+        WebDriver driver = AppiumBuilder.DRIVER.get();
+        if (driver instanceof RemoteWebDriver) {
+            this.driver = driver;
+            log.info("Web driver is ready.");
+        } else this.driver = null;
     }
-
 
     /**
      * Verify {@link MobileItem} present on screen.

@@ -7,28 +7,15 @@ import com.github.panarik.appiumProject.model.screens.main.mobileShopping.Mobile
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import static com.github.panarik.appiumProject.controller.WebController.log;
+import static com.github.panarik.appiumProject.controller.AppiumBuilder.log;
 
 public class BaseTestClass {
 
-    // Set up screens.
-    // Add common screens for both platforms.
-    protected final SignIn signIn = new SignIn();
-    protected final MainScreen main = new MainScreen();
-
-    // Add different screens for each platform.
+    protected SignIn signIn;
+    protected MainScreen main;
     protected MobileShopping mobileShopping;
 
     private final AppiumBuilder appium = new AppiumBuilder();
-
-    public BaseTestClass() {
-
-//        // Initialize screens for each platform.
-//        switch (Configs.OS) {
-//            case ("ANDROID") -> mobileShopping = new MobileShoppingAndroid();
-//            case ("IOS") -> mobileShopping = new MobileShoppingIOS();
-//        }
-    }
 
     @BeforeTest
     public void start() {
@@ -43,4 +30,9 @@ public class BaseTestClass {
         appium.stop();
     }
 
+    private void setupScreens() {
+        this.main = new MainScreen();
+        this.signIn = new SignIn();
+    }
+    
 }
