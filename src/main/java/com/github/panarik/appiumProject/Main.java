@@ -1,9 +1,12 @@
 package com.github.panarik.appiumProject;
 
+import com.github.panarik.appiumProject.tools.configs.JsonParser;
+import com.github.panarik.appiumProject.tools.configs.data.TestData;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello!");
+        TestData data = new JsonParser().getData();
     }
 
 }

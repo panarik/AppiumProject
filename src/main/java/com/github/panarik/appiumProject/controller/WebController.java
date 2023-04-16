@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import static com.github.panarik.appiumProject.controller.AppiumBuilder.log;
+import static com.github.panarik.appiumProject.controller.AppiumInstance.log;
 
 /**
  * Appium controller class contains all common methods for Android and iOS. Screens can't use Appium controller methods directly.
@@ -16,7 +16,7 @@ public class WebController {
     private final WebDriver driver;
 
     public WebController() {
-        WebDriver driver = AppiumBuilder.DRIVER.get();
+        WebDriver driver = AppiumInstance.DRIVER.get();
         if (driver instanceof RemoteWebDriver) {
             this.driver = driver;
             log.info("Web driver is ready.");

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG Appium">
-    <test name="TestAppiumSuite">
+<suite name="TestNG Appium" parallel="tests" thread-count="2">
+    <test name="TestAndroid">
+        <parameter name="platformName" value="ANDROID"/>
+        <parameter name="udid" value="your_android_device_udid"/>
+        <packages>
+            <package name="com.github.panarik.appiumProject.tests"/>
+        </packages>
+    </test>
+    <test name="TestIOS">
+        <parameter name="platformName" value="IOS"/>
+        <parameter name="udid" value="your_ios_device_udid"/>
         <packages>
             <package name="com.github.panarik.appiumProject.tests"/>
         </packages>
