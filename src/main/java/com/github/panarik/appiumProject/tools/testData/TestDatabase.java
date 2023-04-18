@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.model.base;
+package com.github.panarik.appiumProject.tools.testData;
 
 import java.sql.*;
 

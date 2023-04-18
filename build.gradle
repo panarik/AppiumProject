@@ -1,5 +1,6 @@
 plugins {
-    id("java-library")
+    id 'java'
+    id "io.freefair.lombok" version "8.0.1"
 }
 
 java {
@@ -19,20 +20,23 @@ repositories {
 
 dependencies {
 
-    //for logging
+    // Logging
     implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
 
-    // Tests
-    testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-    testImplementation 'io.appium:java-client:7.5.1'
-    testImplementation 'org.testng:testng:7.4.0' //testNG
-    testImplementation 'com.google.code.gson:gson:2.9.0' //parse json
-    testImplementation 'io.qameta.allure:allure-testng:2.19.0'
+    // Appium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.8.3'
+    implementation 'io.appium:java-client:8.3.0'
 
-    //for use DB
+    // TestData
+    implementation 'com.google.code.gson:gson:2.9.0' //parse json
     implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.34.0'
 
+    // Support
+    implementation 'io.qameta.allure:allure-testng:2.19.0'
+
+    // Tests
+    testImplementation 'org.testng:testng:7.7.0'
 }
 
 test {

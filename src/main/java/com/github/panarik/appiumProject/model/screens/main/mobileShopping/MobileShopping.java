@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.model.screen.main.mobileShopping;
+package com.github.panarik.appiumProject.model.screens.main.mobileShopping;
 
 /**
  * Interface of screen 'Mobile shopping' for both platforms.

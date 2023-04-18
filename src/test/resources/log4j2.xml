@@ -4,7 +4,7 @@
 
     <Properties>
         <Property name="basePath">logs</Property>
-        <Property name="pattern">%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C(%F:%L) - %m%n</Property>
+        <Property name="pattern">%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] - %m%n</Property>
     </Properties>
 
     <Appenders>
