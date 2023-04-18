@@ -1,24 +1,20 @@
 package com.github.panarik.appiumProject.tests.base;
 
 import com.github.panarik.appiumProject.controller.AppiumInstance;
-import com.github.panarik.appiumProject.model.screens.SignIn;
-import com.github.panarik.appiumProject.model.screens.main.MainScreen;
 import com.github.panarik.appiumProject.model.screens.main.mobileShopping.MobileShopping;
 import com.github.panarik.appiumProject.model.screens.main.mobileShopping.MobileShoppingAndroid;
 import com.github.panarik.appiumProject.model.screens.main.mobileShopping.MobileShoppingIOS;
+import com.github.panarik.appiumProject.tools.Log;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
-import static com.github.panarik.appiumProject.controller.AppiumInstance.log;
-
 public class BaseTestClass {
 
-    protected SignIn signIn;
-    protected MainScreen main;
     protected MobileShopping mobileShopping;
 
     private final AppiumInstance appium = new AppiumInstance();
+    private final Log log = new Log();
 
     @Parameters({"platformName", "udid"})
     @BeforeTest
@@ -34,8 +30,6 @@ public class BaseTestClass {
     }
 
     private void setupScreens(String osName) {
-        this.main = new MainScreen();
-        this.signIn = new SignIn();
         if (osName.equals("ANDROID")) mobileShopping = new MobileShoppingAndroid();
         else mobileShopping = new MobileShoppingIOS();
         log.info("Screens is ready.");

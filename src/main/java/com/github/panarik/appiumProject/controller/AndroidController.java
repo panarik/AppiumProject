@@ -1,13 +1,13 @@
 package com.github.panarik.appiumProject.controller;
 
+import com.github.panarik.appiumProject.tools.Log;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebDriver;
-
-import static com.github.panarik.appiumProject.controller.AppiumInstance.log;
 
 public class AndroidController {
 
     private final AndroidDriver driver;
+    private final Log log = new Log();
 
     public AndroidController() {
         WebDriver driver = AppiumInstance.DRIVER.get();

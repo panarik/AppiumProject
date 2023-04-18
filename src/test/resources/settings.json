@@ -1,33 +1,28 @@
 {
   "environment": {
-    "app": "<path_to_apk>",
-    "appPackage": "com.google.android.apps.maps",
-    "appActivity": "com.google.android.maps.MapsActivity",
-    "testType": "localhost"
+    "url": "http://127.0.0.1:4723",
+    "testType": "localhost",
+    "xcodeSigningId": "iPhone Developer",
+    "xcodeOrgId": "FZC7997D9N",
+    "showXcodeLog": true
   },
   "browserstack": {
     "url": "http://hub.browserstack.com/wd/hub",
     "browserstack.user": "your-browserstack-login",
     "browserstack.key": "your-browserstack-key",
-    "app": "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c",
+    "app": "bs://your_browserstack_app_id",
     "device": "Google Pixel 3",
     "os_version": "9.0",
-    "project": "First Java Project",
-    "build": "browserstack-build-1",
-    "name": "first_test"
+    "project": "your_browserstack_project",
+    "build": "browserstack-build",
+    "name": "test_name"
   },
   "devices": [
     {
-      "platform_name": "ANDROID",
-      "platformVersion": "10",
+      "bundleId": "com.google.Maps",
+      "platformName": "IOS",
       "udid": "device_udid",
-      "unlockType": "pin",
-      "unlockKey": "device_unlock_key"
-    },
-    {
-      "platform_name": "iOS",
-      "platformVersion": "15.4",
-      "udid": "AA285218-0314-4732-9EB5-434F68337AAA"
+      "automationName": "XCUITest"
     }
   ]
 }

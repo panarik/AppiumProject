@@ -2,7 +2,7 @@ package com.github.panarik.appiumProject.model.screens.base;
 
 import com.github.panarik.appiumProject.controller.AndroidController;
 
-public abstract class AndroidBaseScreen extends BaseScreen {
+public abstract class AndroidBaseScreen {
 
     private final AndroidController controller;
 

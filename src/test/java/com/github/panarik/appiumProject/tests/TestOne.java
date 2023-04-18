@@ -14,6 +14,7 @@ public class TestOne extends TestScenarios {
 
     @Test
     public void openMenu() {
+
         // Step 1: Open MainScreen menu.
         openMainMenu();
     }

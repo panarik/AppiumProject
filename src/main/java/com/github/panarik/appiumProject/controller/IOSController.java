@@ -1,20 +1,20 @@
 package com.github.panarik.appiumProject.controller;
 
 
+import com.github.panarik.appiumProject.tools.Log;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.WebDriver;
-
-import static com.github.panarik.appiumProject.controller.AppiumInstance.log;
 
 public class IOSController {
 
     private final IOSDriver driver;
+    private final Log log = new Log();
 
     public IOSController() {
         WebDriver driver = AppiumInstance.DRIVER.get();
         if (driver instanceof IOSDriver) {
             this.driver = (IOSDriver) driver;
-            log.info("Android driver is ready.");
+            log.info("IOS driver is ready.");
         } else this.driver = null;
     }
 

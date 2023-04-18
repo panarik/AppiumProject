@@ -1,7 +1,6 @@
 package com.github.panarik.appiumProject.model.screens.main.mobileShopping;
 
 import com.github.panarik.appiumProject.model.screens.base.AndroidBaseScreen;
-import com.github.panarik.appiumProject.model.screens.base.BaseScreen;
 import io.qameta.allure.Step;
 
 /**

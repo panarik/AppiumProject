@@ -1,4 +1,4 @@
-package com.github.panarik.appiumProject.controller.driver;
+package com.github.panarik.appiumProject.model.elements.model;
 
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebElement;
